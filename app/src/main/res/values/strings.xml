@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">BetterCareApp</string>
+    <string name="better_care">Better Care</string>
+    <string name="admin">Admin</string>
+    <string name="care_staff">Care-Staff</string>
+    <string name="login">Login</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="dont_have_account">don\'t have account?</string>
+    <string name="already_have_an_account">already have an account?</string>
+    <string name="sign_up">Sign-up</string>
+    <string name="sign_up_title">Sign up</string>
+    <string name="empty_err_msg">This field can\'t be empty</string>
+    <string name="username">Username</string>
+    <string name="choose_shift">Choose Shift</string>
+    <string name="morning">Morning</string>
+    <string name="afternoon">Afternoon</string>
+    <string name="night">Night</string>
+    <string name="residents_details">Residents details</string>
+    <string name="add_resident">Add resident</string>
+    <string name="view_past_record">View past record</string>
+    <string name="enter_resident_detail">Enter new resident\'s detail</string>
+    <string name="name">Name\: </string>
+    <string name="enter_name">Enter name</string>
+    <string name="date_of_birth">Date of birth\:</string>
+    <string name="enter_date_of_birth">Enter date of birth</string>
+    <string name="sex">Sex\:</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="choose">Choose..</string>
+    <string name="room_no">Room no.</string>
+    <string name="enter_room_number">Enter room number</string>
+    <string name="save">Save</string>
+    <string name="age">Age:</string>
+    <string name="care_type">Care type:</string>
+</resources>

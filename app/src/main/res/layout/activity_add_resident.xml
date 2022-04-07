@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.AddResidentActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true">
+
+    <TextView
+        android:id="@+id/add_resident_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_66dp"
+        android:gravity="start"
+        android:text="@string/enter_resident_detail"
+        android:textSize="@dimen/dimen_22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_40dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/name"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/add_resident_title"
+        app:layout_constraintTop_toBottomOf="@+id/add_resident_title" />
+
+    <EditText
+        android:id="@+id/name_value"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_60dp"
+        android:layout_marginStart="@dimen/dimen_60dp"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:hint="@string/enter_name"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingStart="@dimen/dimen_12dp"
+        android:paddingEnd="@dimen/dimen_12dp"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/name_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/name_title"
+        app:layout_constraintTop_toTopOf="@+id/name_title" />
+
+    <TextView
+        android:id="@+id/name_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:drawableStart="@drawable/ic_error_img"
+        android:padding="@dimen/dimen_1dp"
+        android:text="@string/empty_err_msg"
+        android:textColor="@color/warning_red"
+        android:textSize="@dimen/dimen_12sp"
+        android:textStyle="normal"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/name_value"
+        app:layout_constraintTop_toBottomOf="@+id/name_value" />
+
+    <TextView
+        android:id="@+id/date_of_birth_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_60dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/date_of_birth"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/name_title"
+        app:layout_constraintTop_toBottomOf="@+id/name_title" />
+
+    <Button
+        android:id="@+id/date_of_birth_value"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_60dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="@string/enter_date_of_birth"
+        android:paddingStart="@dimen/dimen_12dp"
+        android:paddingEnd="@dimen/dimen_12dp"
+        android:textColor="@color/grey_white"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="normal"
+        app:layout_constraintBaseline_toBaselineOf="@+id/date_of_birth_title"
+        app:layout_constraintEnd_toEndOf="@+id/name_value"
+        app:layout_constraintStart_toStartOf="@+id/name_value"
+        app:layout_constraintTop_toBottomOf="@+id/name_value" />
+
+    <TextView
+        android:id="@+id/sex_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_60dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/sex"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/date_of_birth_title"
+        app:layout_constraintTop_toBottomOf="@+id/date_of_birth_title" />
+
+    <Spinner
+        android:id="@+id/sex_value"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_60dp"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:hint="@string/choose"
+        android:paddingStart="@dimen/dimen_12dp"
+        android:paddingEnd="@dimen/dimen_12dp"
+        android:spinnerMode="dropdown"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/date_of_birth_value"
+        app:layout_constraintStart_toStartOf="@+id/date_of_birth_value"
+        app:layout_constraintTop_toBottomOf="@+id/date_of_birth_value" />
+
+    <TextView
+        android:id="@+id/room_no_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_60dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/room_no"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/sex_title"
+        app:layout_constraintTop_toBottomOf="@+id/sex_title" />
+
+
+    <EditText
+        android:id="@+id/room_no_value"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_60dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:hint="@string/enter_room_number"
+        android:inputType="date"
+        android:maxLines="1"
+        android:paddingStart="@dimen/dimen_12dp"
+        android:paddingEnd="@dimen/dimen_12dp"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="normal"
+        app:layout_constraintBaseline_toBaselineOf="@+id/room_no_title"
+        app:layout_constraintEnd_toEndOf="@+id/sex_value"
+        app:layout_constraintStart_toStartOf="@+id/sex_value"
+        app:layout_constraintTop_toBottomOf="@+id/sex_value" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_70dp"
+        android:layout_marginHorizontal="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:backgroundTint="@color/grey_white"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textSize="@dimen/dimen_18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

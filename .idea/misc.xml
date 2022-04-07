@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/custom_email.xml" value="0.1285" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/custom_imput.xml" value="0.1285" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/custom_input.xml" value="0.1285" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/custom_lock.xml" value="0.1285" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/custom_spinner.xml" value="0.141" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_email.xml" value="0.1285" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_email_focused.xml" value="0.1285" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_error_img.xml" value="0.1285" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_lock.xml" value="0.1285" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_lock_focused.xml" value="0.1285" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_add_resident.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_choose_shift.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_home_screen.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_login.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_sign_up.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/resident_custom_view.xml" value="0.22" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/spinner_custom_view.xml" value="0.12" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

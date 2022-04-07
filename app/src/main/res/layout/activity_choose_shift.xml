@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.ChooseShiftActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_66dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/dimen_20dp"
+        android:text="@string/choose_shift"
+        android:textSize="@dimen/dimen_40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_morning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:backgroundTint="@color/grey_white"
+        android:padding="@dimen/dimen_20dp"
+        android:text="@string/morning"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <Button
+        android:id="@+id/btn_afternoon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:backgroundTint="@color/grey_white"
+        android:padding="@dimen/dimen_20dp"
+        android:text="@string/afternoon"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_morning" />
+
+    <Button
+        android:id="@+id/btn_night"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:backgroundTint="@color/grey_white"
+        android:padding="@dimen/dimen_20dp"
+        android:text="@string/night"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_afternoon" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
