@@ -13,12 +13,21 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.spg.bettercareapp.R;
+import com.spg.bettercareapp.model.Admin;
 import com.spg.bettercareapp.model.Keys;
+import com.spg.bettercareapp.model.Resident;
+import com.spg.bettercareapp.repo.ApiClient;
+import com.spg.bettercareapp.repo.ApiInterface;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnFocusChange;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.email_error)
@@ -103,11 +112,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    private void receiveIntent(){
-        if(getIntent()!=null && getIntent().getStringExtra(Keys.LOGIN_KEY)!=null){
+
+    private void receiveIntent() {
+        if (getIntent() != null && getIntent().getStringExtra(Keys.LOGIN_KEY) != null) {
             loginKey = getIntent().getStringExtra(Keys.LOGIN_KEY);
         }
     }
+
     @OnFocusChange(R.id.email)
     public void onEmailFocusChange(boolean isFocus) {
         if (isFocus) {
@@ -157,7 +168,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void setLoginButtonEnable() {
         if (!isEmailError && !isPassError) {
-            isEnabled=true;
+            isEnabled = true;
             btnLogin.setEnabled(true);
         } else {
             btnLogin.setEnabled(false);
@@ -165,25 +176,23 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btn_login)
-    public void onLoginClicked(){
+    public void onLoginClicked() {
         btnLogin.setEnabled(isEnabled);
-        if(isEnabled){
+        if (isEnabled) {
             String username = email.getText().toString();
             String pass = password.getText().toString();
-            if(username.equals("test123") && pass.equals("test123")){
+            if (username.equals("test123") && pass.equals("test123")) {
 
-                if(loginKey.equals("Admin")){
-                    startActivity(new Intent(this,AdminDashboardActivity.class));
-                }else if(loginKey.equals("Care Staff")){
-                    startActivity(new Intent(this,ChooseShiftActivity.class));
-                }else{
-                    Toast.makeText(this,"Invalid login credentials",Toast.LENGTH_SHORT).show();
+                if (loginKey.equals("Admin")) {
+                    startActivity(new Intent(this, AdminDashboardActivity.class));
+                } else if (loginKey.equals("Care Staff")) {
+                    startActivity(new Intent(this, ChooseShiftActivity.class));
+                } else {
+                    Toast.makeText(this, "Invalid login credentials", Toast.LENGTH_SHORT).show();
                 }
-            }else{
-                Toast.makeText(this,"Invalid login credentials",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Invalid login credentials", Toast.LENGTH_SHORT).show();
             }
         }
     }
-
-
 }
