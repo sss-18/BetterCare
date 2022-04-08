@@ -13,6 +13,7 @@ import com.spg.bettercareapp.R;
 import com.spg.bettercareapp.adapter.ResidentListAdapter;
 import com.spg.bettercareapp.model.Keys;
 import com.spg.bettercareapp.model.ResidentViewModel;
+import com.spg.bettercareapp.model.RowType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,11 +82,11 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
     private List<ResidentViewModel> getDummyData() {
         models = new ArrayList<>();
-        models.add(new ResidentViewModel("ross", "30", "test"));
-        models.add(new ResidentViewModel("peter", "35", "test"));
-        models.add(new ResidentViewModel("mark ", "15", "test"));
-        models.add(new ResidentViewModel("meg", "30", "test"));
-        models.add(new ResidentViewModel("robert", "30", "test"));
+        models.add(new ResidentViewModel("ross", "30", "test", RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("peter", "35", "test", RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("mark ", "15", "test", RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("meg", "30", "test", RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("robert", "30", "test", RowType.ADMIN_ROW_TYPE));
         return models;
     }
 }

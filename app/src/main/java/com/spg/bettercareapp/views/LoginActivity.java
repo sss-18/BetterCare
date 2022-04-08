@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.spg.bettercareapp.R;
+import com.spg.bettercareapp.model.Keys;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     private boolean isEnabled = false;
     private boolean isPassError = false;
     private boolean isEmailError = false;
+    private String loginKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void setUp() {
+        receiveIntent();
+
         btnLogin.setEnabled(false);
         emailError.setVisibility(View.GONE);
         passwordError.setVisibility(View.GONE);
@@ -75,7 +79,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
         password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -100,7 +103,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
+    private void receiveIntent(){
+        if(getIntent()!=null && getIntent().getStringExtra(Keys.LOGIN_KEY)!=null){
+            loginKey = getIntent().getStringExtra(Keys.LOGIN_KEY);
+        }
+    }
     @OnFocusChange(R.id.email)
     public void onEmailFocusChange(boolean isFocus) {
         if (isFocus) {
@@ -164,7 +171,14 @@ public class LoginActivity extends AppCompatActivity {
             String username = email.getText().toString();
             String pass = password.getText().toString();
             if(username.equals("test123") && pass.equals("test123")){
-                startActivity(new Intent(this,AdminDashboardActivity.class));
+
+                if(loginKey.equals("Admin")){
+                    startActivity(new Intent(this,AdminDashboardActivity.class));
+                }else if(loginKey.equals("Care Staff")){
+                    startActivity(new Intent(this,ChooseShiftActivity.class));
+                }else{
+                    Toast.makeText(this,"Invalid login credentials",Toast.LENGTH_SHORT).show();
+                }
             }else{
                 Toast.makeText(this,"Invalid login credentials",Toast.LENGTH_SHORT).show();
             }
