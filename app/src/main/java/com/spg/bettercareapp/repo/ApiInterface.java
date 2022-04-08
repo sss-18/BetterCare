@@ -21,10 +21,10 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
     @GET("authadmin.php")
-    Call<List<Resident>> authAdmin(@Query("user_name") String user_name);
+    Call<List<Admin>> authAdmin(@Query("user_name") String user_name);
 
     @GET("authcarestaff.php")
-    Call<List<Resident>> authCareStaff(@Query("user_name") String user_name);
+    Call<List<Care>> authCareStaff(@Query("user_name") String user_name);
 
     @GET("getaccident.php")
     Call<List<Accident>> getAccidents(@Query("resident_id") String resident_id, @Query("date") String date);
