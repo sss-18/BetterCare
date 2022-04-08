@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.spg.bettercareapp.R;
+import com.spg.bettercareapp.model.Keys;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -21,6 +22,15 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_admin)
     public void onAdminClicked(){
-        startActivity(new Intent(this,LoginActivity.class));
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.putExtra(Keys.LOGIN_KEY,"Admin");
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_care_staff)
+    public void onCareStaffClicked(){
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.putExtra(Keys.LOGIN_KEY,"Care Staff");
+        startActivity(intent);
     }
 }

@@ -3,7 +3,9 @@ package com.spg.bettercareapp.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class ResidentViewModel implements Parcelable {
+import com.spg.bettercareapp.views.IResidentViewModel;
+
+public class ResidentViewModel implements IResidentViewModel, Parcelable {
     private String name;
     private String age;
     private String careType;
@@ -13,6 +15,15 @@ public class ResidentViewModel implements Parcelable {
         this.age = age;
         this.careType = careType;
     }
+
+    public ResidentViewModel(String name, String age, String careType, RowType rowType) {
+        this.name = name;
+        this.age = age;
+        this.careType = careType;
+        this.rowType = rowType;
+    }
+
+    private RowType rowType;
 
     protected ResidentViewModel(Parcel in) {
         name = in.readString();
@@ -54,6 +65,16 @@ public class ResidentViewModel implements Parcelable {
 
     public void setCareType(String careType) {
         this.careType = careType;
+    }
+
+    @Override
+    public void set(RowType rowType) {
+        this.rowType = rowType;
+    }
+
+    @Override
+    public RowType get() {
+        return rowType;
     }
 
     @Override
