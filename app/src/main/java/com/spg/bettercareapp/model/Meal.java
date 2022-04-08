@@ -1,48 +1,78 @@
 package com.spg.bettercareapp.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.Date;
+
 public class Meal {
+    @SerializedName("meal_id")
+    private int meal_id;
+    @SerializedName("date")
+    private Date date;
+    @SerializedName("resident_id")
+    private int resident_id;
+    @SerializedName("breakfast")
+    private int breakfast;
+    @SerializedName("snack")
+    private int snack;
+    @SerializedName("lunch")
+    private int lunch;
+    @SerializedName("dinner")
+    private int dinner;
 
-    private boolean breakfast;
-    private boolean snacks;
-    private boolean lunch;
-    private boolean dinner;
-
-    public Meal(boolean breakfast, boolean snacks, boolean lunch, boolean dinner) {
-        this.breakfast = breakfast;
-        this.snacks = snacks;
-        this.lunch = lunch;
-        this.dinner = dinner;
+    public int getMeal_id() {
+        return meal_id;
     }
 
-    public boolean isBreakfast() {
+    public void setMeal_id(int meal_id) {
+        this.meal_id = meal_id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getResident_id() {
+        return resident_id;
+    }
+
+    public void setResident_id(int resident_id) {
+        this.resident_id = resident_id;
+    }
+
+    public int getBreakfast() {
         return breakfast;
     }
 
-    public void setBreakfast(boolean breakfast) {
+    public void setBreakfast(int breakfast) {
         this.breakfast = breakfast;
     }
 
-    public boolean isSnacks() {
-        return snacks;
+    public int getSnack() {
+        return snack;
     }
 
-    public void setSnacks(boolean snacks) {
-        this.snacks = snacks;
+    public void setSnack(int snack) {
+        this.snack = snack;
     }
 
-    public boolean isLunch() {
+    public int getLunch() {
         return lunch;
     }
 
-    public void setLunch(boolean lunch) {
+    public void setLunch(int lunch) {
         this.lunch = lunch;
     }
 
-    public boolean isDinner() {
+    public int getDinner() {
         return dinner;
     }
 
-    public void setDinner(boolean dinner) {
+    public void setDinner(int dinner) {
         this.dinner = dinner;
     }
 }
