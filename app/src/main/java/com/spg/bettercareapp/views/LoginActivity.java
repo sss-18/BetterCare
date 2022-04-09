@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,12 +14,22 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.spg.bettercareapp.R;
+import com.spg.bettercareapp.model.Admin;
+import com.spg.bettercareapp.model.Care;
 import com.spg.bettercareapp.model.Keys;
+import com.spg.bettercareapp.model.Resident;
+import com.spg.bettercareapp.repo.ApiClient;
+import com.spg.bettercareapp.repo.ApiInterface;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnFocusChange;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.email_error)
@@ -103,11 +114,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    private void receiveIntent(){
-        if(getIntent()!=null && getIntent().getStringExtra(Keys.LOGIN_KEY)!=null){
+
+    private void receiveIntent() {
+        if (getIntent() != null && getIntent().getStringExtra(Keys.LOGIN_KEY) != null) {
             loginKey = getIntent().getStringExtra(Keys.LOGIN_KEY);
         }
     }
+
     @OnFocusChange(R.id.email)
     public void onEmailFocusChange(boolean isFocus) {
         if (isFocus) {
@@ -157,7 +170,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void setLoginButtonEnable() {
         if (!isEmailError && !isPassError) {
-            isEnabled=true;
+            isEnabled = true;
             btnLogin.setEnabled(true);
         } else {
             btnLogin.setEnabled(false);
@@ -165,25 +178,66 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btn_login)
-    public void onLoginClicked(){
+    public void onLoginClicked() {
         btnLogin.setEnabled(isEnabled);
-        if(isEnabled){
+        if (isEnabled) {
             String username = email.getText().toString();
             String pass = password.getText().toString();
-            if(username.equals("test123") && pass.equals("test123")){
 
-                if(loginKey.equals("Admin")){
-                    startActivity(new Intent(this,AdminDashboardActivity.class));
-                }else if(loginKey.equals("Care Staff")){
-                    startActivity(new Intent(this,ChooseShiftActivity.class));
-                }else{
-                    Toast.makeText(this,"Invalid login credentials",Toast.LENGTH_SHORT).show();
-                }
-            }else{
-                Toast.makeText(this,"Invalid login credentials",Toast.LENGTH_SHORT).show();
+            if (loginKey.equals("Admin")) {
+                authAdminCredential(username, pass);
+            } else if (loginKey.equals("Care Staff")) {
+                authCareStaffCredential(username, pass);
+            } else {
+                Toast.makeText(this, "Invalid login credentials", Toast.LENGTH_SHORT).show();
             }
+
         }
     }
 
+    private void authAdminCredential(String user_name, String password) {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<List<Admin>> call = apiInterface.authAdmin(user_name);
+        call.enqueue(new Callback<List<Admin>>() {
+            @Override
+            public void onResponse(Call<List<Admin>> call, Response<List<Admin>> response) {
+                Log.d("Login-Activity", "Fetched Successfully Admin");
+                response.body();
+                if (password.equals(response.body().get(0).getPassword())) {
+                    startActivity(new Intent(LoginActivity.this, AdminDashboardActivity.class));
+                } else {
+                    Toast.makeText(LoginActivity.this, "Invalid login credentials", Toast.LENGTH_SHORT).show();
+                }
+            }
 
+            @Override
+            public void onFailure(Call<List<Admin>> call, Throwable t) {
+                Log.d("Login-Activity", "Failed Admin" + t);
+                Toast.makeText(LoginActivity.this, "Invalid login credentials", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void authCareStaffCredential(String user_name, String password) {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<List<Care>> call = apiInterface.authCareStaff(user_name);
+        call.enqueue(new Callback<List<Care>>() {
+            @Override
+            public void onResponse(Call<List<Care>> call, Response<List<Care>> response) {
+                Log.d("Login-Activity", "Fetched Successfully Care-Staff");
+                response.body();
+                if (password.equals(response.body().get(0).getPassword())) {
+                    startActivity(new Intent(LoginActivity.this, ChooseShiftActivity.class));
+                } else {
+                    Toast.makeText(LoginActivity.this, "Invalid login credentials", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Care>> call, Throwable t) {
+                Log.d("Login-Activity", "Failed Care-Staff" + t);
+                Toast.makeText(LoginActivity.this, "Invalid login credentials", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

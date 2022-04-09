@@ -1,8 +1,8 @@
 package com.spg.bettercareapp.model;
 
 public class ResidentRecord {
-    private PersonalCare personalCare;
-    private Meal meal;
+    private PersonalCares mPersonalCares;
+    private Meals mMeals;
     private String fluid;
     private String activityRecord;
     private String accidentRecord;
@@ -11,9 +11,9 @@ public class ResidentRecord {
     private String weaklyCatalogueRecord;
     private String commentsRecord;
 
-    public ResidentRecord(PersonalCare personalCare, Meal meal, String fluid, String activityRecord, String accidentRecord, String moodRecord, String visitationRecord, String weaklyCatalogueRecord, String commentsRecord) {
-        this.personalCare = personalCare;
-        this.meal = meal;
+    public ResidentRecord(PersonalCares personalCares, Meals meals, String fluid, String activityRecord, String accidentRecord, String moodRecord, String visitationRecord, String weaklyCatalogueRecord, String commentsRecord) {
+        this.mPersonalCares = personalCares;
+        this.mMeals = meals;
         this.fluid = fluid;
         this.activityRecord = activityRecord;
         this.accidentRecord = accidentRecord;
@@ -23,20 +23,20 @@ public class ResidentRecord {
         this.commentsRecord = commentsRecord;
     }
 
-    public PersonalCare getPersonalCare() {
-        return personalCare;
+    public PersonalCares getPersonalCare() {
+        return mPersonalCares;
     }
 
-    public void setPersonalCare(PersonalCare personalCare) {
-        this.personalCare = personalCare;
+    public void setPersonalCare(PersonalCares personalCares) {
+        this.mPersonalCares = personalCares;
     }
 
-    public Meal getMeal() {
-        return meal;
+    public Meals getMeal() {
+        return mMeals;
     }
 
-    public void setMeal(Meal meal) {
-        this.meal = meal;
+    public void setMeal(Meals meals) {
+        this.mMeals = meals;
     }
 
     public String getFluid() {

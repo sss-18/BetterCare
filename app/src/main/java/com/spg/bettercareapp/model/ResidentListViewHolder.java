@@ -40,9 +40,11 @@ public class ResidentListViewHolder extends RecyclerView.ViewHolder {
     public void bind(ResidentViewModel model, int position) {
         this.model = model;
         this.position = position;
-        nameValue.setText(model.getName());
-        ageValue.setText(model.getAge());
-        careTypeValue.setText(model.getCareType());
+        if (model != null) {
+            nameValue.setText(model.getName());
+            ageValue.setText(model.getAge());
+            careTypeValue.setText(model.getCareType());
+        }
     }
 
     @OnClick(R.id.btn_delete)
