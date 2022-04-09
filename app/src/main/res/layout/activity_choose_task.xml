@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.ChooseTaskActivity">
+
+    <TextView
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:padding="@dimen/dimen_10dp"
+        android:drawableStart="@drawable/ic_arrow_left"
+        android:drawablePadding="@dimen/dimen_10dp"
+        android:text="Back"
+        android:textStyle="bold"
+        android:textColor="@color/grey_white"
+        android:textSize="@dimen/dimen_16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/resident_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_66dp"
+        android:gravity="start"
+        android:text="@string/resident"
+        android:textSize="@dimen/dimen_22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/resident"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_20dp"
+        android:gravity="start"
+        android:text="@string/resident"
+        android:textSize="@dimen/dimen_22sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/resident_name"
+        app:layout_constraintTop_toTopOf="@+id/resident_name"
+        app:layout_constraintStart_toEndOf="@+id/resident_name"/>
+    <TextView
+        android:id="@+id/today_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:gravity="start"
+        android:text="yyyy/mm/dd"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/resident"
+        app:layout_constraintBottom_toBottomOf="@+id/resident"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resident_name">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/personal_care"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_70dp"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:backgroundTint="@color/grey_white"
+                android:text="Personal care"
+                android:textAllCaps="false"
+                android:textSize="@dimen/dimen_18sp" />
+
+            <Button
+                android:id="@+id/fluid"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_70dp"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:backgroundTint="@color/grey_white"
+                android:text="Fluid"
+                android:textAllCaps="false"
+                android:textSize="@dimen/dimen_18sp" />
+
+            <Button
+                android:id="@+id/activity"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_70dp"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:backgroundTint="@color/grey_white"
+                android:text="Activity"
+                android:textAllCaps="false"
+                android:textSize="@dimen/dimen_18sp" />
+
+            <Button
+                android:id="@+id/meal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_70dp"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:backgroundTint="@color/grey_white"
+                android:text="Meal"
+                android:textAllCaps="false"
+                android:textSize="@dimen/dimen_18sp" />
+
+            <Button
+                android:id="@+id/accident"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_70dp"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:backgroundTint="@color/grey_white"
+                android:text="Possible fall/accident"
+                android:textAllCaps="false"
+                android:textSize="@dimen/dimen_18sp" />
+
+            <Button
+                android:id="@+id/mood"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_70dp"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:backgroundTint="@color/grey_white"
+                android:text="Mood"
+                android:textAllCaps="false"
+                android:textSize="@dimen/dimen_18sp" />
+
+            <Button
+                android:id="@+id/visitation"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_70dp"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:backgroundTint="@color/grey_white"
+                android:text="Visitation"
+                android:textAllCaps="false"
+                android:textSize="@dimen/dimen_18sp" />
+
+            <Button
+                android:id="@+id/weakly_catalogue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_70dp"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:backgroundTint="@color/grey_white"
+                android:text="Weakly catalogue"
+                android:textAllCaps="false"
+                android:textSize="@dimen/dimen_18sp" />
+
+            <Button
+                android:id="@+id/other"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_70dp"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:backgroundTint="@color/grey_white"
+                android:text="Other."
+                android:textAllCaps="false"
+                android:textSize="@dimen/dimen_18sp" />
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

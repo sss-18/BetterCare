@@ -22,6 +22,7 @@ import com.spg.bettercareapp.adapter.SpinnerAdapter;
 import com.spg.bettercareapp.model.Keys;
 import com.spg.bettercareapp.model.ResidentDetail;
 import com.spg.bettercareapp.model.ResidentViewModel;
+import com.spg.bettercareapp.model.RowType;
 import com.spg.bettercareapp.model.Sex;
 
 import java.util.Calendar;
@@ -211,9 +212,12 @@ public class AddResidentActivity extends AppCompatActivity {
             residentDetail.setName(name);
             residentDetail.setDateOfBirth(date);
             residentDetail.setRoomNo(roomNo);
-            ResidentViewModel model = new ResidentViewModel(name,Integer.toString(currYear-selYear),"test");
-            Log.i(TAG, "onSaveClick: " + residentDetail.toString()+" model->"+model);
-            //make network call to save the data
+            //make network call to save the data and fetch the id.
+            //id is required else the delete operation cannot be performed.
+            //ResidentViewModel model = new ResidentViewModel(name,Integer.toString(currYear-selYear),"test", id, RowType.ADMIN_ROW_TYPE);
+            ResidentViewModel model = new ResidentViewModel(name,Integer.toString(currYear-selYear),"test",RowType.ADMIN_ROW_TYPE);
+            Log.i(TAG, "onSaveClick: " + residentDetail.toString()+" model->"+model.get().toString());
+
             //if success then
             Intent intent = new Intent(this,AdminDashboardActivity.class);
             intent.putExtra(Keys.ADD_RESIDENT_KEY,model);

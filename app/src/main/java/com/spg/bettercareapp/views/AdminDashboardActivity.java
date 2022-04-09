@@ -74,6 +74,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
         if(this.requestCode==requestCode && resultCode==0020){
             if(data.getParcelableExtra(Keys.ADD_RESIDENT_KEY)!=null){
                 ResidentViewModel residentViewModel = data.getParcelableExtra(Keys.ADD_RESIDENT_KEY);
+                residentViewModel.set(RowType.ADMIN_ROW_TYPE);
                 models.add(residentViewModel);
                 adapter.notifyDataSetChanged();
             }
@@ -82,11 +83,11 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
     private List<ResidentViewModel> getDummyData() {
         models = new ArrayList<>();
-        models.add(new ResidentViewModel("ross", "30", "test", RowType.ADMIN_ROW_TYPE));
-        models.add(new ResidentViewModel("peter", "35", "test", RowType.ADMIN_ROW_TYPE));
-        models.add(new ResidentViewModel("mark ", "15", "test", RowType.ADMIN_ROW_TYPE));
-        models.add(new ResidentViewModel("meg", "30", "test", RowType.ADMIN_ROW_TYPE));
-        models.add(new ResidentViewModel("robert", "30", "test", RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("ross", "30", "test", 0,RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("peter", "35", "test", 1,RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("mark ", "15", "test", 2,RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("meg", "30", "test", 3,RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("robert", "30", "test", 4,RowType.ADMIN_ROW_TYPE));
         return models;
     }
 }

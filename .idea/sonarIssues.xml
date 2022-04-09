@@ -238,6 +238,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/spg/bettercareapp/views/ChooseTaskActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/spg/bettercareapp/views/HomeScreenActivity.java">
           <value>
             <set />
@@ -353,6 +358,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_choose_task.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_home_screen.xml">
           <value>
             <set />
@@ -374,6 +384,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/reident_info_custom_view.xml">
           <value>
             <set />
           </value>

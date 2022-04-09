@@ -33,4 +33,5 @@
     <string name="save">Save</string>
     <string name="age">Age:</string>
     <string name="care_type">Care type:</string>
+    <string name="resident">Resident: </string>
 </resources>
