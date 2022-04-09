@@ -57,7 +57,7 @@ public class ResidentListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             View view = inflater.inflate(R.layout.resident_custom_view, parent, false);
             return new ResidentListViewHolder(view, listener, residentClickListener);
         } else {
-            View view = inflater.inflate(R.layout.resident_custom_view, parent, false);
+            View view = inflater.inflate(R.layout.resident_info_custom_view, parent, false);
             return new ResidentInfoViewHolder(view, residentInfoClickListener);
         }
     }

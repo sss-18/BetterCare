@@ -9,11 +9,15 @@ public class ResidentViewModel implements IResidentViewModel, Parcelable {
     private String name;
     private String age;
     private String careType;
+    private int id;
+    private RowType rowType;
 
-    public ResidentViewModel(String name, String age, String careType) {
+    public ResidentViewModel(String name, String age, String careType, int id, RowType rowType) {
         this.name = name;
         this.age = age;
         this.careType = careType;
+        this.id = id;
+        this.rowType = rowType;
     }
 
     public ResidentViewModel(String name, String age, String careType, RowType rowType) {
@@ -23,12 +27,11 @@ public class ResidentViewModel implements IResidentViewModel, Parcelable {
         this.rowType = rowType;
     }
 
-    private RowType rowType;
-
     protected ResidentViewModel(Parcel in) {
         name = in.readString();
         age = in.readString();
         careType = in.readString();
+        id = in.readInt();
     }
 
     public static final Creator<ResidentViewModel> CREATOR = new Creator<ResidentViewModel>() {
@@ -67,6 +70,14 @@ public class ResidentViewModel implements IResidentViewModel, Parcelable {
         this.careType = careType;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public void set(RowType rowType) {
         this.rowType = rowType;
@@ -87,5 +98,6 @@ public class ResidentViewModel implements IResidentViewModel, Parcelable {
         parcel.writeString(name);
         parcel.writeString(age);
         parcel.writeString(careType);
+        parcel.writeInt(id);
     }
 }
