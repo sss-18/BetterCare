@@ -48,6 +48,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
     };
     OnResidentClickListener residentClickListener = (model) -> {
         Log.i(TAG, "residentClickListener: clicked");
+        startActivity(new Intent(this,PastRecordActivity.class));
     };
 
     @Override

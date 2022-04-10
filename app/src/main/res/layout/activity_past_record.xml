@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.PastRecordActivity">
+
+    <TextView
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:drawableStart="@drawable/ic_arrow_left"
+        android:drawablePadding="@dimen/dimen_10dp"
+        android:text="Back"
+        android:textColor="@color/grey_white"
+        android:textSize="@dimen/dimen_16sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/title"
+        app:layout_constraintBottom_toBottomOf="@+id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_10dp"
+        android:text="Resident"
+        android:textColor="@color/grey_white"
+        android:textSize="@dimen/dimen_22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/name_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_40dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/name"
+                android:textSize="@dimen/dimen_18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/root_view" />
+
+            <TextView
+                android:id="@+id/name_value"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_60dp"
+                android:layout_marginStart="@dimen/dimen_60dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:background="@drawable/custom_input"
+                android:gravity="center_vertical|start"
+                android:paddingStart="@dimen/dimen_12dp"
+                android:paddingEnd="@dimen/dimen_12dp"
+                android:text="Saurabh"
+                android:textSize="@dimen/dimen_18sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="@+id/name_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/name_title"
+                app:layout_constraintTop_toTopOf="@+id/name_title" />
+
+            <TextView
+                android:id="@+id/date_of_birth_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_60dp"
+                android:fontFamily="sans-serif"
+                android:text="DOB:"
+                android:textSize="@dimen/dimen_18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/name_title"
+                app:layout_constraintTop_toBottomOf="@+id/name_title" />
+
+            <TextView
+                android:id="@+id/date_of_birth_value"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_60dp"
+                android:background="@drawable/custom_input"
+                android:gravity="center_vertical|start"
+                android:paddingStart="@dimen/dimen_12dp"
+                android:paddingEnd="@dimen/dimen_12dp"
+                android:text="1998-12-09"
+                android:textSize="@dimen/dimen_18sp"
+                android:textStyle="normal"
+                app:layout_constraintBaseline_toBaselineOf="@+id/date_of_birth_title"
+                app:layout_constraintEnd_toEndOf="@+id/name_value"
+                app:layout_constraintStart_toStartOf="@+id/name_value"
+                app:layout_constraintTop_toBottomOf="@+id/name_value" />
+
+            <TextView
+                android:id="@+id/sex_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_60dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/sex"
+                android:textSize="@dimen/dimen_18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/date_of_birth_title"
+                app:layout_constraintTop_toBottomOf="@+id/date_of_birth_title" />
+
+            <TextView
+                android:id="@+id/sex_value"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_60dp"
+                android:background="@drawable/custom_input"
+                android:gravity="center_vertical|start"
+                android:paddingStart="@dimen/dimen_12dp"
+                android:paddingEnd="@dimen/dimen_12dp"
+                android:text="Male"
+                android:textSize="@dimen/dimen_18sp"
+                android:textStyle="normal"
+                app:layout_constraintBaseline_toBaselineOf="@+id/sex_title"
+                app:layout_constraintEnd_toEndOf="@+id/date_of_birth_value"
+                app:layout_constraintStart_toStartOf="@+id/date_of_birth_value"
+                app:layout_constraintTop_toBottomOf="@+id/date_of_birth_value" />
+
+            <TextView
+                android:id="@+id/room_no_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_60dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/room_no"
+                android:textSize="@dimen/dimen_18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/sex_title"
+                app:layout_constraintTop_toBottomOf="@+id/sex_title" />
+
+            <TextView
+                android:id="@+id/room_no_value"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_60dp"
+                android:background="@drawable/custom_input"
+                android:gravity="center_vertical|start"
+                android:paddingStart="@dimen/dimen_12dp"
+                android:paddingEnd="@dimen/dimen_12dp"
+                android:text="0001"
+                android:textSize="@dimen/dimen_18sp"
+                android:textStyle="normal"
+                app:layout_constraintBaseline_toBaselineOf="@+id/room_no_title"
+                app:layout_constraintEnd_toEndOf="@+id/sex_value"
+                app:layout_constraintStart_toStartOf="@+id/sex_value"
+                app:layout_constraintTop_toBottomOf="@+id/sex_value" />
+
+            <TextView
+                android:id="@+id/date_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_60dp"
+                android:fontFamily="sans-serif"
+                android:text="Choose date"
+                android:textSize="@dimen/dimen_18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/room_no_title"
+                app:layout_constraintTop_toBottomOf="@+id/room_no_title" />
+
+            <Button
+                android:id="@+id/date_value"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_60dp"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:hint=""
+                android:paddingStart="@dimen/dimen_12dp"
+                android:paddingEnd="@dimen/dimen_12dp"
+                android:textColor="@color/grey_white"
+                android:textSize="@dimen/dimen_18sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/date_title"
+                app:layout_constraintEnd_toEndOf="@+id/room_no_value"
+                app:layout_constraintStart_toStartOf="@+id/room_no_value"
+                app:layout_constraintTop_toBottomOf="@+id/room_no_value" />
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_70dp"
+                android:layout_marginHorizontal="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_30dp"
+                android:backgroundTint="@color/grey_white"
+                android:text="Search"
+                android:textAllCaps="false"
+                android:textSize="@dimen/dimen_18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date_title" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/personal_care"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_search">
+
+                <TextView
+                    android:id="@+id/personal_care_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="Personal care"
+                    android:textColor="@color/grey_white"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/bathing_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="Bathing"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/personal_care_title" />
+
+                <CheckBox
+                    android:id="@+id/bathing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/bathing_title"
+                    app:layout_constraintEnd_toEndOf="@+id/bathing_title"
+                    app:layout_constraintTop_toTopOf="@+id/bathing_title" />
+
+                <TextView
+                    android:id="@+id/skin_care_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="Skin care"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bathing_title" />
+
+                <CheckBox
+                    android:id="@+id/skin_care"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/skin_care_title"
+                    app:layout_constraintEnd_toEndOf="@+id/skin_care_title"
+                    app:layout_constraintTop_toTopOf="@+id/skin_care_title" />
+
+                <TextView
+                    android:id="@+id/oral_care_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="Oral care"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/skin_care_title" />
+
+                <CheckBox
+                    android:id="@+id/oral_care"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/oral_care_title"
+                    app:layout_constraintEnd_toEndOf="@+id/oral_care_title"
+                    app:layout_constraintTop_toTopOf="@+id/oral_care_title" />
+
+
+                <TextView
+                    android:id="@+id/dressing_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="Dressing"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/oral_care_title" />
+
+                <CheckBox
+                    android:id="@+id/dressing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/dressing_title"
+                    app:layout_constraintEnd_toEndOf="@+id/dressing_title"
+                    app:layout_constraintTop_toTopOf="@+id/dressing_title" />
+
+                <TextView
+                    android:id="@+id/pad_change_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="Pad change"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dressing_title" />
+
+                <CheckBox
+                    android:id="@+id/pad_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/pad_change_title"
+                    app:layout_constraintEnd_toEndOf="@+id/pad_change_title"
+                    app:layout_constraintTop_toTopOf="@+id/pad_change_title" />
+
+                <TextView
+                    android:id="@+id/hair_care_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="Hair care"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pad_change_title" />
+
+                <CheckBox
+                    android:id="@+id/hair_care"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/hair_care_title"
+                    app:layout_constraintEnd_toEndOf="@+id/hair_care_title"
+                    app:layout_constraintTop_toTopOf="@+id/hair_care_title" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fluid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/personal_care">
+
+                <TextView
+                    android:id="@+id/fluid_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="Fluid"
+                    android:textColor="@color/grey_white"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/one_fifty_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="150ML"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fluid_title" />
+
+                <CheckBox
+                    android:id="@+id/one_fifty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/one_fifty_title"
+                    app:layout_constraintEnd_toEndOf="@+id/one_fifty_title"
+                    app:layout_constraintTop_toTopOf="@+id/one_fifty_title" />
+
+                <TextView
+                    android:id="@+id/two_fifty_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="250ML"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/one_fifty_title" />
+
+                <CheckBox
+                    android:id="@+id/two_fifty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/two_fifty_title"
+                    app:layout_constraintEnd_toEndOf="@+id/two_fifty_title"
+                    app:layout_constraintTop_toTopOf="@+id/two_fifty_title" />
+
+                <TextView
+                    android:id="@+id/three_fifty_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="350ML"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/two_fifty_title" />
+
+                <CheckBox
+                    android:id="@+id/three_fifty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/three_fifty_title"
+                    app:layout_constraintEnd_toEndOf="@+id/three_fifty_title"
+                    app:layout_constraintTop_toTopOf="@+id/three_fifty_title" />
+
+
+                <TextView
+                    android:id="@+id/more_than_350_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="> 350ML"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/three_fifty_title" />
+
+                <CheckBox
+                    android:id="@+id/more_than_350"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/more_than_350_title"
+                    app:layout_constraintEnd_toEndOf="@+id/more_than_350_title"
+                    app:layout_constraintTop_toTopOf="@+id/more_than_350_title" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/meal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fluid">
+
+                <TextView
+                    android:id="@+id/meal_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="Meal"
+                    android:textColor="@color/grey_white"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/breakfast_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="Breakfast"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/meal_title" />
+
+                <CheckBox
+                    android:id="@+id/breakfast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/breakfast_title"
+                    app:layout_constraintEnd_toEndOf="@+id/breakfast_title"
+                    app:layout_constraintTop_toTopOf="@+id/breakfast_title" />
+
+                <TextView
+                    android:id="@+id/snack_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="Snack in between"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/breakfast_title" />
+
+                <CheckBox
+                    android:id="@+id/snack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/snack_title"
+                    app:layout_constraintEnd_toEndOf="@+id/snack_title"
+                    app:layout_constraintTop_toTopOf="@+id/snack_title" />
+
+                <TextView
+                    android:id="@+id/lunch_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="Lunch"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/snack_title" />
+
+                <CheckBox
+                    android:id="@+id/lunch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/lunch_title"
+                    app:layout_constraintEnd_toEndOf="@+id/lunch_title"
+                    app:layout_constraintTop_toTopOf="@+id/lunch_title" />
+
+
+                <TextView
+                    android:id="@+id/dinner_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custon_rounded_background"
+                    android:fontFamily="sans-serif"
+                    android:padding="@dimen/dimen_20dp"
+                    android:text="Dinner"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/dimen_18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lunch_title" />
+
+                <CheckBox
+                    android:id="@+id/dinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/dinner_title"
+                    app:layout_constraintEnd_toEndOf="@+id/dinner_title"
+                    app:layout_constraintTop_toTopOf="@+id/dinner_title" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/mood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_40dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meal">
+
+                <TextView
+                    android:id="@+id/mood_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="@dimen/dimen_20dp"
+                    android:paddingEnd="@dimen/dimen_20dp"
+                    android:paddingBottom="@dimen/dimen_20dp"
+                    android:text="Mood:"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/mood_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custom_input"
+                    android:gravity="center_vertical|start"
+                    android:paddingStart="@dimen/dimen_12dp"
+                    android:paddingEnd="@dimen/dimen_12dp"
+                    android:text="Saurabh"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="normal" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/accident"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_40dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mood">
+
+                <TextView
+                    android:id="@+id/accident_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="@dimen/dimen_20dp"
+                    android:paddingEnd="@dimen/dimen_20dp"
+                    android:paddingBottom="@dimen/dimen_20dp"
+                    android:text="Accident:"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/accident_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_150dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custom_input"
+                    android:gravity="top|start"
+                    android:padding="@dimen/dimen_12dp"
+                    android:text="jdawdda  dawd da aw  w dw a"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="normal" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/daily"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_40dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/accident">
+
+                <TextView
+                    android:id="@+id/daily_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="@dimen/dimen_20dp"
+                    android:paddingEnd="@dimen/dimen_20dp"
+                    android:paddingBottom="@dimen/dimen_20dp"
+                    android:text="Daily act:"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/daily_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_150dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custom_input"
+                    android:gravity="top|start"
+                    android:padding="@dimen/dimen_12dp"
+                    android:text="jdawdda  dawd da aw  w dw a"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="normal" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/visitation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_40dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/daily">
+
+                <TextView
+                    android:id="@+id/visitation_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="@dimen/dimen_20dp"
+                    android:paddingEnd="@dimen/dimen_20dp"
+                    android:paddingBottom="@dimen/dimen_20dp"
+                    android:text="Visitation:"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/visitation_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_150dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custom_input"
+                    android:gravity="top|start"
+                    android:padding="@dimen/dimen_12dp"
+                    android:text="jdawdda  dawd da aw  w dw a"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="normal" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/weakly_catalogue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_40dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/visitation">
+
+                <TextView
+                    android:id="@+id/weakly_catalogue_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="@dimen/dimen_20dp"
+                    android:paddingBottom="@dimen/dimen_20dp"
+                    android:text="Weakly\ncatalogue:"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/weakly_catalogue_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_150dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custom_input"
+                    android:gravity="top|start"
+                    android:padding="@dimen/dimen_12dp"
+                    android:text="jdawdda  dawd da aw  w dw a"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="normal" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_40dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weakly_catalogue">
+
+                <TextView
+                    android:id="@+id/other_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="@dimen/dimen_20dp"
+                    android:paddingEnd="@dimen/dimen_20dp"
+                    android:paddingBottom="@dimen/dimen_20dp"
+                    android:text="Other:"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/other_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_150dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:background="@drawable/custom_input"
+                    android:gravity="top|start"
+                    android:padding="@dimen/dimen_12dp"
+                    android:text="jdawdda  dawd da aw  w dw a"
+                    android:textSize="@dimen/dimen_22sp"
+                    android:textStyle="normal" />
+
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
