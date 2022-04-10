@@ -22,7 +22,10 @@ public class ResidentInfoViewHolder extends RecyclerView.ViewHolder {
     TextView ageValue;
     @BindView(R.id.care_type_value)
     TextView careTypeValue;
-
+    @BindView(R.id.gender_value)
+    TextView genderValue;
+    @BindView(R.id.room_no_value)
+    TextView roomNoValue;
     private int position;
     private ResidentViewModel model;
     final OnResidentInfoClickListener residentInfoClickListener;
@@ -40,6 +43,8 @@ public class ResidentInfoViewHolder extends RecyclerView.ViewHolder {
             nameValue.setText(model.getName());
             ageValue.setText(model.getAge());
             careTypeValue.setText(model.getCareType());
+            genderValue.setText(model.getSex());
+            roomNoValue.setText(Integer.toString(model.getRoomNo()));
         }
     }
 

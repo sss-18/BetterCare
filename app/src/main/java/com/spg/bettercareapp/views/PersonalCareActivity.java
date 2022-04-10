@@ -1,11 +1,11 @@
 package com.spg.bettercareapp.views;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.spg.bettercareapp.R;
 import com.spg.bettercareapp.model.Keys;
@@ -26,12 +26,13 @@ public class PersonalCareActivity extends AppCompatActivity {
     TextView todayDate;
 
     private String TAG = "PersonalCareActivity";
-    private boolean isBathing=false;
-    private boolean isSkinCare=false;
-    private boolean isOralCare=false;
-    private boolean isDressing=false;
-    private boolean isPadChange=false;
-    private boolean isHairCare=false;
+    private boolean isBathing = false;
+    private boolean isSkinCare = false;
+    private boolean isOralCare = false;
+    private boolean isDressing = false;
+    private boolean isPadChange = false;
+    private boolean isHairCare = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class PersonalCareActivity extends AppCompatActivity {
         setUp();
     }
 
-    private void setUp(){
+    private void setUp() {
         receiveIntent();
 
         resident.setText(name);
@@ -49,43 +50,56 @@ public class PersonalCareActivity extends AppCompatActivity {
 
         //make network call and pre-populate the data
     }
-    private void receiveIntent(){
-        if(getIntent()!=null && getIntent().getStringExtra(Keys.NAME_KEY)!=null
-                && getIntent().getStringExtra(Keys.DATE_KEY)!=null){
-            id = getIntent().getIntExtra(Keys.ID_KEY,-1);
+
+    private void receiveIntent() {
+        if (getIntent() != null && getIntent().getStringExtra(Keys.NAME_KEY) != null
+                && getIntent().getStringExtra(Keys.DATE_KEY) != null) {
+            id = getIntent().getIntExtra(Keys.ID_KEY, -1);
             date = getIntent().getStringExtra(Keys.DATE_KEY);
             name = getIntent().getStringExtra(Keys.NAME_KEY);
-        }else{
+        } else {
             finish();
         }
     }
+
     @OnCheckedChanged(R.id.bathing)
-    public void onCheckedBathing(CompoundButton button, boolean isBathing){
-        this.isBathing=isBathing;
+    public void onCheckedBathing(CompoundButton button, boolean isBathing) {
+        this.isBathing = isBathing;
     }
+
     @OnCheckedChanged(R.id.skin_care)
-    public void onCheckedSkinCare(CompoundButton button, boolean isSkinCare){
-        this.isSkinCare=isSkinCare;
+    public void onCheckedSkinCare(CompoundButton button, boolean isSkinCare) {
+        this.isSkinCare = isSkinCare;
     }
+
     @OnCheckedChanged(R.id.oral_care)
-    public void onOralCare(CompoundButton button, boolean isOralCare){
-        this.isOralCare=isOralCare;
+    public void onOralCare(CompoundButton button, boolean isOralCare) {
+        this.isOralCare = isOralCare;
     }
+
     @OnCheckedChanged(R.id.dressing)
-    public void onDressing(CompoundButton button, boolean isDressing){
-        this.isDressing=isDressing;
+    public void onDressing(CompoundButton button, boolean isDressing) {
+        this.isDressing = isDressing;
     }
+
     @OnCheckedChanged(R.id.pad_change)
-    public void onPadChange(CompoundButton button, boolean isPadChange){
-        this.isPadChange=isPadChange;
+    public void onPadChange(CompoundButton button, boolean isPadChange) {
+        this.isPadChange = isPadChange;
     }
+
     @OnCheckedChanged(R.id.hair_care)
-    public void onHairChange(CompoundButton button, boolean isHairCare){
-        this.isHairCare=isHairCare;
-        Log.i(TAG, "onHairChange: "+this.isHairCare+"pad change "+isPadChange+"oral care "+isOralCare+"bathing "+isBathing);
+    public void onHairChange(CompoundButton button, boolean isHairCare) {
+        this.isHairCare = isHairCare;
+        Log.i(TAG, "onHairChange: " + this.isHairCare + "pad change " + isPadChange + "oral care " + isOralCare + "bathing " + isBathing);
     }
+
     @OnClick(R.id.btn_save)
-    public void onSaveClicked(){
+    public void onSaveClicked() {
         //make the network call to save the s
+    }
+
+    @OnClick(R.id.back_btn)
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

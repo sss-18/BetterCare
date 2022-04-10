@@ -15,7 +15,7 @@
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.147" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_lock.xml" value="0.1285" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_lock_focused.xml" value="0.1285" />
-        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_accident.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_accident.xml" value="0.22" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_add_resident.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_choose_shift.xml" value="0.1796875" />
@@ -28,7 +28,7 @@
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_meal.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_mood.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_other.xml" value="0.1796875" />
-        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_personal_care.xml" value="0.14743589743589744" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_personal_care.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_resident_details.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_sign_up.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_visitation.xml" value="0.1796875" />
@@ -36,6 +36,7 @@
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/custom_mood_spinner.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/reident_info_custom_view.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/resident_custom_view.xml" value="0.22" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/resident_info_custom_view.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/spinner_custom_view.xml" value="0.12" />
       </map>
     </option>

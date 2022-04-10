@@ -90,11 +90,11 @@ public class ResidentDetailsActivity extends AppCompatActivity {
 
     private List<ResidentViewModel> getDummyData() {
         models = new ArrayList<>();
-        models.add(new ResidentViewModel("ross", "30", "test", 0, RowType.CARE_PERSON_ROW_TYPE));
-        models.add(new ResidentViewModel("peter", "35", "test", 1,RowType.CARE_PERSON_ROW_TYPE));
-        models.add(new ResidentViewModel("mark ", "15", "test", 2,RowType.CARE_PERSON_ROW_TYPE));
-        models.add(new ResidentViewModel("meg", "30", "test", 3,RowType.CARE_PERSON_ROW_TYPE));
-        models.add(new ResidentViewModel("robert", "30", "test", 4,RowType.CARE_PERSON_ROW_TYPE));
+        models.add(new ResidentViewModel("ross", "30", "test", 0,"Male",0001,RowType.CARE_PERSON_ROW_TYPE));
+        models.add(new ResidentViewModel("peter", "35", "test", 1,"Male",0001,RowType.CARE_PERSON_ROW_TYPE));
+        models.add(new ResidentViewModel("mark ", "15", "test", 2,"Male",0001,RowType.CARE_PERSON_ROW_TYPE));
+        models.add(new ResidentViewModel("meg", "30", "test", 3,"Male",0001,RowType.CARE_PERSON_ROW_TYPE));
+        models.add(new ResidentViewModel("robert", "30", "test", 4,"Male",0001,RowType.CARE_PERSON_ROW_TYPE));
         return models;
     }
 

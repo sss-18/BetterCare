@@ -285,4 +285,8 @@ public class AddResidentActivity extends AppCompatActivity {
             }
         });
     }
+    @OnClick(R.id.back_btn)
+    public void onBackPressed(){
+        super.onBackPressed();
+    }
 }

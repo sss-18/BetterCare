@@ -110,27 +110,32 @@ public class ChooseTaskActivity extends AppCompatActivity {
     @OnClick(R.id.visitation)
     public void onVisitationClicked() {
         Intent intent = new Intent(this, VisitationActivity.class);
-        intent.putExtra(Keys.NAME_KEY,name);
-        intent.putExtra(Keys.ID_KEY,id);
-        intent.putExtra(Keys.DATE_KEY,date);
+        intent.putExtra(Keys.NAME_KEY, name);
+        intent.putExtra(Keys.ID_KEY, id);
+        intent.putExtra(Keys.DATE_KEY, date);
         startActivity(intent);
     }
 
     @OnClick(R.id.weakly_catalogue)
     public void onWeaklyCatalogueClicked() {
         Intent intent = new Intent(this, WeaklyCatalogueActivity.class);
-        intent.putExtra(Keys.NAME_KEY,name);
-        intent.putExtra(Keys.ID_KEY,id);
-        intent.putExtra(Keys.DATE_KEY,date);
+        intent.putExtra(Keys.NAME_KEY, name);
+        intent.putExtra(Keys.ID_KEY, id);
+        intent.putExtra(Keys.DATE_KEY, date);
         startActivity(intent);
     }
 
     @OnClick(R.id.other)
     public void onOtherClicked() {
         Intent intent = new Intent(this, OtherActivity.class);
-        intent.putExtra(Keys.NAME_KEY,name);
-        intent.putExtra(Keys.ID_KEY,id);
-        intent.putExtra(Keys.DATE_KEY,date);
+        intent.putExtra(Keys.NAME_KEY, name);
+        intent.putExtra(Keys.ID_KEY, id);
+        intent.putExtra(Keys.DATE_KEY, date);
         startActivity(intent);
+    }
+
+    @OnClick(R.id.back_btn)
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
