@@ -24,7 +24,10 @@ public class ResidentListViewHolder extends RecyclerView.ViewHolder {
     TextView careTypeValue;
     @BindView(R.id.root_view)
     ConstraintLayout rootView;
-
+    @BindView(R.id.gender_value)
+    TextView genderValue;
+    @BindView(R.id.room_no_value)
+    TextView roomNoValue;
     private OnDeleteClickListener listener;
     private OnResidentClickListener residentClickListener;
     private int position;
@@ -44,6 +47,8 @@ public class ResidentListViewHolder extends RecyclerView.ViewHolder {
             nameValue.setText(model.getName());
             ageValue.setText(model.getAge());
             careTypeValue.setText(model.getCareType());
+            genderValue.setText(model.getSex());
+            roomNoValue.setText(Integer.toString(model.getRoomNo()));
         }
     }
 
