@@ -60,8 +60,13 @@ public class AddResidentActivity extends AppCompatActivity {
     private boolean isEnabled = false;
     private DatePickerDialog datePickerDialog;
     public static final String TAG = "AddResidentActivity";
+
     private int currYear, selYear;
     private String gender;
+    private String roomNo;
+    private String name;
+
+
     OnGenderClickListener listener = (gender) -> {
         this.gender = gender;
     };
@@ -102,6 +107,7 @@ public class AddResidentActivity extends AppCompatActivity {
 
         initDatePicker();
         dateOfBirthValue.setText(getTodaysDate());
+        roomNoValue.setText("0000");
         nameError.setVisibility(View.GONE);
     }
 
@@ -112,6 +118,7 @@ public class AddResidentActivity extends AppCompatActivity {
         month = month + 1;
         int day = cal.get(Calendar.DAY_OF_MONTH);
         currYear = year;
+        selYear=currYear;
         return makeDateString(day, month, year);
     }
 
@@ -212,9 +219,8 @@ public class AddResidentActivity extends AppCompatActivity {
     public void onSaveClick() {
         save.setEnabled(isEnabled);
         if (isEnabled) {
-            String name = nameValue.getText().toString();
-            String date = dateOfBirthValue.getText().toString();
-            String roomNo = roomNoValue.getText().toString();
+            name = nameValue.getText().toString();
+            roomNo = roomNoValue.getText().toString();
             // TODO : Update this with real time data from user
             //saveRequest(name, "2021-01-01", "Single", "Male", roomNo);
 
@@ -222,7 +228,7 @@ public class AddResidentActivity extends AppCompatActivity {
                     Integer.toString(currYear - selYear),
                     "test",
                     10,
-                    this.gender,
+                    gender,
                     Integer.parseInt(roomNo),
                     RowType.ADMIN_ROW_TYPE);
             Log.i(TAG, "onSaveClick: " + " model->" + model.get().toString());
@@ -245,13 +251,25 @@ public class AddResidentActivity extends AppCompatActivity {
             public void onResponse(Call<List<Resident>> call, Response<List<Resident>> response) {
                 Log.d("Add Resident-Activity", "Save Successfully");
                 Resident resident = response.body().get(0);
-                ResidentViewModel model = new ResidentViewModel(resident.getName(),
-                        Integer.toString(currYear - selYear),
-                        resident.getCare_type(),
-                        resident.getResident_id(),
-                        resident.getSex(),
-                        resident.getRoom_no(),
-                        RowType.ADMIN_ROW_TYPE);
+                ResidentViewModel model;
+                if(resident!=null){
+                    model = new ResidentViewModel(resident.getName(),
+                            Integer.toString(currYear - selYear),
+                            resident.getCare_type(),
+                            resident.getResident_id(),
+                            resident.getSex(),
+                            resident.getRoom_no(),
+                            RowType.ADMIN_ROW_TYPE);
+                }else{
+                    model = new ResidentViewModel(name,
+                            Integer.toString(currYear - selYear),
+                            "test",
+                            10,
+                            gender,
+                            Integer.parseInt(roomNo),
+                            RowType.ADMIN_ROW_TYPE);
+                }
+
                 //if success then
                 Intent intent = new Intent(AddResidentActivity.this, AdminDashboardActivity.class);
                 // TODO: key = resident.id
