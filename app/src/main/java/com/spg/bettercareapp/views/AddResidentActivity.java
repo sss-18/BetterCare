@@ -20,17 +20,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.spg.bettercareapp.R;
 import com.spg.bettercareapp.adapter.SpinnerAdapter;
 import com.spg.bettercareapp.model.Keys;
+import com.spg.bettercareapp.model.Resident;
 import com.spg.bettercareapp.model.ResidentDetail;
 import com.spg.bettercareapp.model.ResidentViewModel;
 import com.spg.bettercareapp.model.RowType;
 import com.spg.bettercareapp.model.Sex;
+import com.spg.bettercareapp.repo.ApiClient;
+import com.spg.bettercareapp.repo.ApiInterface;
 
 import java.util.Calendar;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnFocusChange;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AddResidentActivity extends AppCompatActivity {
     @BindView(R.id.sex_value)
@@ -212,9 +219,9 @@ public class AddResidentActivity extends AppCompatActivity {
             residentDetail.setName(name);
             residentDetail.setDateOfBirth(date);
             residentDetail.setRoomNo(roomNo);
-            //make network call to save the data and fetch the id.
-            //id is required else the delete operation cannot be performed.
-            //ResidentViewModel model = new ResidentViewModel(name,Integer.toString(currYear-selYear),"test", id, RowType.ADMIN_ROW_TYPE);
+            // TODO : Update this with real time data from user
+            //saveRequest(name, "2021-01-01", "Single", "Male", roomNo);
+
             ResidentViewModel model = new ResidentViewModel(name,Integer.toString(currYear-selYear),"test",RowType.ADMIN_ROW_TYPE);
             Log.i(TAG, "onSaveClick: " + residentDetail.toString()+" model->"+model.get().toString());
 
@@ -226,5 +233,34 @@ public class AddResidentActivity extends AppCompatActivity {
             //if failure
             Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG);
         }
+    }
+
+    public void saveRequest(String name, String dob, String careType, String sex, String roomNo) {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<List<Resident>> call = apiInterface.setResident(name, dob, careType, sex, roomNo);
+        call.enqueue(new Callback<List<Resident>>() {
+            @Override
+            public void onResponse(Call<List<Resident>> call, Response<List<Resident>> response) {
+                Log.d("Add Resident-Activity", "Save Successfully");
+                Resident resident = response.body().get(0);
+                ResidentViewModel model = new ResidentViewModel(resident.getName(),
+                        resident.getDob().toString(),
+                        resident.getCare_type(),
+                        RowType.ADMIN_ROW_TYPE);
+
+                //if success then
+                Intent intent = new Intent(AddResidentActivity.this, AdminDashboardActivity.class);
+                // TODO: key = resident.id
+                intent.putExtra(Keys.ADD_RESIDENT_KEY, model);
+                setResult(0020, intent);
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<List<Resident>> call, Throwable t) {
+                Log.d("Add Resident-Activity", "Save Failed "+t);
+                Toast.makeText(AddResidentActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

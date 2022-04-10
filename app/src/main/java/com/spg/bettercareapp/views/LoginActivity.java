@@ -186,9 +186,11 @@ public class LoginActivity extends AppCompatActivity {
 
             if (loginKey.equals("Admin")) {
                 startActivity(new Intent(LoginActivity.this, AdminDashboardActivity.class));
+                // TODO : Uncomment once done
                 //authAdminCredential(username, pass);
             } else if (loginKey.equals("Care Staff")) {
                 startActivity(new Intent(LoginActivity.this, ChooseShiftActivity.class));
+                // TODO : Uncomment once done
                 //authCareStaffCredential(username, pass);
             } else {
                 Toast.makeText(this, "Invalid login credentials", Toast.LENGTH_SHORT).show();

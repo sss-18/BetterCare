@@ -75,7 +75,7 @@ public interface ApiInterface {
                                              @Query("pad_change") String pad_change,
                                              @Query("hair_care") String hair_care);
 
-    @GET("getmood.php")
+    @GET("setresident.php")
     Call<List<Resident>> setResident(@Query("name") String name,
                                      @Query("dob") String dob,
                                      @Query("care_type") String care_type,
