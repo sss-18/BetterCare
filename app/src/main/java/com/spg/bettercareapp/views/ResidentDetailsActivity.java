@@ -67,11 +67,11 @@ public class ResidentDetailsActivity extends AppCompatActivity {
     }
     private String makeDateString(int day, int month, int year){
         String date = Integer.toString(year);
-        if(month<10) date = date+"/0"+Integer.toString(month);
-        else date =date + "/"+Integer.toString(month);
+        if(month<10) date = date+"-0"+Integer.toString(month);
+        else date =date + "-"+Integer.toString(month);
 
-        if(day<10) date = date+"/0"+Integer.toString(day);
-        else date = date+"/"+Integer.toString(day);
+        if(day<10) date = date+"-0"+Integer.toString(day);
+        else date = date+"-"+Integer.toString(day);
 
         return date;
 

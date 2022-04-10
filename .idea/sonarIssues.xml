@@ -113,6 +113,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/spg/bettercareapp/Utils/DateUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/spg/bettercareapp/ViewHolders/ResidentInfoViewHolder.java">
           <value>
             <set />
@@ -229,6 +234,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/spg/bettercareapp/model/WeekelyCatalogueRecord.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/spg/bettercareapp/repo/ApiInterface.java">
           <value>
             <set />
           </value>
