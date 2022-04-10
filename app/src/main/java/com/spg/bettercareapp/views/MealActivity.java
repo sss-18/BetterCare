@@ -3,6 +3,7 @@ package com.spg.bettercareapp.views;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.spg.bettercareapp.R;
@@ -10,11 +11,18 @@ import com.spg.bettercareapp.model.Keys;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
+import butterknife.OnClick;
 
 public class MealActivity extends AppCompatActivity {
     int id;
     String date;
     String name;
+    private boolean breakfast=false;
+    private boolean lunch=false;
+    private boolean snack=false;
+    private boolean dinner=false;
+
     @BindView(R.id.resident)
     TextView resident;
 
@@ -43,5 +51,26 @@ public class MealActivity extends AppCompatActivity {
         }else{
             finish();
         }
+    }
+    @OnCheckedChanged(R.id.breakfast)
+    public void onCheckedBreakfast(CompoundButton button, boolean isBreakfast){
+        this.breakfast=isBreakfast;
+    }
+    @OnCheckedChanged(R.id.lunch)
+    public void onCheckedLunch(CompoundButton button, boolean isLunch){
+        this.lunch=isLunch;
+    }
+    @OnCheckedChanged(R.id.snack)
+    public void onCheckedSnack(CompoundButton button, boolean isSnack){
+        this.snack=isSnack;
+    }
+    @OnCheckedChanged(R.id.dinner)
+    public void onCheckedDinner(CompoundButton button, boolean isDinner){
+        this.dinner=isDinner;
+    }
+
+    @OnClick(R.id.btn_save)
+    public void onSaveClicked(){
+        //make the network call to save the data.
     }
 }

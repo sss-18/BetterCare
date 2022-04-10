@@ -3,6 +3,8 @@ package com.spg.bettercareapp.views;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.spg.bettercareapp.R;
@@ -10,6 +12,8 @@ import com.spg.bettercareapp.model.Keys;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
+import butterknife.OnClick;
 
 public class PersonalCareActivity extends AppCompatActivity {
     int id;
@@ -20,6 +24,14 @@ public class PersonalCareActivity extends AppCompatActivity {
 
     @BindView(R.id.today_date)
     TextView todayDate;
+
+    private String TAG = "PersonalCareActivity";
+    private boolean isBathing=false;
+    private boolean isSkinCare=false;
+    private boolean isOralCare=false;
+    private boolean isDressing=false;
+    private boolean isPadChange=false;
+    private boolean isHairCare=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +46,8 @@ public class PersonalCareActivity extends AppCompatActivity {
 
         resident.setText(name);
         todayDate.setText(date);
+
+        //make network call and pre-populate the data
     }
     private void receiveIntent(){
         if(getIntent()!=null && getIntent().getStringExtra(Keys.NAME_KEY)!=null
@@ -44,5 +58,34 @@ public class PersonalCareActivity extends AppCompatActivity {
         }else{
             finish();
         }
+    }
+    @OnCheckedChanged(R.id.bathing)
+    public void onCheckedBathing(CompoundButton button, boolean isBathing){
+        this.isBathing=isBathing;
+    }
+    @OnCheckedChanged(R.id.skin_care)
+    public void onCheckedSkinCare(CompoundButton button, boolean isSkinCare){
+        this.isSkinCare=isSkinCare;
+    }
+    @OnCheckedChanged(R.id.oral_care)
+    public void onOralCare(CompoundButton button, boolean isOralCare){
+        this.isOralCare=isOralCare;
+    }
+    @OnCheckedChanged(R.id.dressing)
+    public void onDressing(CompoundButton button, boolean isDressing){
+        this.isDressing=isDressing;
+    }
+    @OnCheckedChanged(R.id.pad_change)
+    public void onPadChange(CompoundButton button, boolean isPadChange){
+        this.isPadChange=isPadChange;
+    }
+    @OnCheckedChanged(R.id.hair_care)
+    public void onHairChange(CompoundButton button, boolean isHairCare){
+        this.isHairCare=isHairCare;
+        Log.i(TAG, "onHairChange: "+this.isHairCare+"pad change "+isPadChange+"oral care "+isOralCare+"bathing "+isBathing);
+    }
+    @OnClick(R.id.btn_save)
+    public void onSaveClicked(){
+        //make the network call to save the s
     }
 }
