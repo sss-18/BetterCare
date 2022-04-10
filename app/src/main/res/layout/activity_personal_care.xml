@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.PersonalCareActivity">
+
+    <TextView
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:drawableStart="@drawable/ic_arrow_left"
+        android:drawablePadding="@dimen/dimen_10dp"
+        android:padding="@dimen/dimen_10dp"
+        android:text="Back"
+        android:textColor="@color/grey_white"
+        android:textSize="@dimen/dimen_16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_10dp"
+        android:text="Personal Care"
+        android:textColor="@color/grey_white"
+        android:textSize="@dimen/dimen_22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/back_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/back_btn" />
+
+    <TextView
+        android:id="@+id/resident_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_66dp"
+        android:gravity="start"
+        android:text="@string/resident"
+        android:textSize="@dimen/dimen_22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/resident"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_20dp"
+        android:gravity="start"
+        android:text="@string/resident"
+        android:textSize="@dimen/dimen_22sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/resident_name"
+        app:layout_constraintStart_toEndOf="@+id/resident_name"
+        app:layout_constraintTop_toTopOf="@+id/resident_name" />
+
+    <TextView
+        android:id="@+id/today_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:gravity="start"
+        android:text="yyyy/mm/dd"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/resident"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/resident" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resident_name">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/bathing_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:background="@drawable/custon_rounded_background"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/dimen_20dp"
+                android:text="Bathing"
+                android:textColor="@color/dark_grey"
+                android:textSize="@dimen/dimen_18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/bathing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                app:layout_constraintBottom_toBottomOf="@+id/bathing_title"
+                app:layout_constraintEnd_toEndOf="@+id/bathing_title"
+                app:layout_constraintTop_toTopOf="@+id/bathing_title" />
+
+            <TextView
+                android:id="@+id/skin_care_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:background="@drawable/custon_rounded_background"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/dimen_20dp"
+                android:text="Skin care"
+                android:textColor="@color/dark_grey"
+                android:textSize="@dimen/dimen_18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bathing_title" />
+
+            <CheckBox
+                android:id="@+id/skin_care"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                app:layout_constraintBottom_toBottomOf="@+id/skin_care_title"
+                app:layout_constraintEnd_toEndOf="@+id/skin_care_title"
+                app:layout_constraintTop_toTopOf="@+id/skin_care_title" />
+
+            <TextView
+                android:id="@+id/oral_care_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:background="@drawable/custon_rounded_background"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/dimen_20dp"
+                android:text="Oral care"
+                android:textColor="@color/dark_grey"
+                android:textSize="@dimen/dimen_18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/skin_care_title" />
+
+            <CheckBox
+                android:id="@+id/oral_care"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                app:layout_constraintBottom_toBottomOf="@+id/oral_care_title"
+                app:layout_constraintEnd_toEndOf="@+id/oral_care_title"
+                app:layout_constraintTop_toTopOf="@+id/oral_care_title" />
+
+
+            <TextView
+                android:id="@+id/dressing_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:background="@drawable/custon_rounded_background"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/dimen_20dp"
+                android:text="Dressing"
+                android:textColor="@color/dark_grey"
+                android:textSize="@dimen/dimen_18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/oral_care_title" />
+
+            <CheckBox
+                android:id="@+id/dressing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                app:layout_constraintBottom_toBottomOf="@+id/dressing_title"
+                app:layout_constraintEnd_toEndOf="@+id/dressing_title"
+                app:layout_constraintTop_toTopOf="@+id/dressing_title" />
+
+            <TextView
+                android:id="@+id/pad_change_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:background="@drawable/custon_rounded_background"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/dimen_20dp"
+                android:text="Pad change"
+                android:textColor="@color/dark_grey"
+                android:textSize="@dimen/dimen_18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dressing_title" />
+
+            <CheckBox
+                android:id="@+id/pad_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                app:layout_constraintBottom_toBottomOf="@+id/pad_change_title"
+                app:layout_constraintEnd_toEndOf="@+id/pad_change_title"
+                app:layout_constraintTop_toTopOf="@+id/pad_change_title" />
+
+            <TextView
+                android:id="@+id/hair_care_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:background="@drawable/custon_rounded_background"
+                android:fontFamily="sans-serif"
+                android:padding="@dimen/dimen_20dp"
+                android:text="Hair care"
+                android:textColor="@color/dark_grey"
+                android:textSize="@dimen/dimen_18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pad_change_title" />
+
+            <CheckBox
+                android:id="@+id/hair_care"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                app:layout_constraintBottom_toBottomOf="@+id/hair_care_title"
+                app:layout_constraintEnd_toEndOf="@+id/hair_care_title"
+                app:layout_constraintTop_toTopOf="@+id/hair_care_title" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_70dp"
+        android:layout_marginHorizontal="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:backgroundTint="@color/grey_white"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textSize="@dimen/dimen_18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
