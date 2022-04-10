@@ -8,20 +8,32 @@
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/custom_input.xml" value="0.1285" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/custom_lock.xml" value="0.1285" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/custom_spinner.xml" value="0.141" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/custon_rounded_background.xml" value="0.147" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_email.xml" value="0.1285" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_email_focused.xml" value="0.1285" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_error_img.xml" value="0.1285" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.147" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_lock.xml" value="0.1285" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/drawable/ic_lock_focused.xml" value="0.1285" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_accident.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_add_resident.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_choose_shift.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_choose_task.xml" value="0.2005813953488372" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_daily.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_fluid.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_home_screen.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_login.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_meal.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_mood.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_other.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_personal_care.xml" value="0.14743589743589744" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_resident_details.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_sign_up.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_visitation.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/activity_weakly_catalogue.xml" value="0.1796875" />
+        <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/custom_mood_spinner.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/reident_info_custom_view.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/resident_custom_view.xml" value="0.22" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/spinner_custom_view.xml" value="0.12" />
