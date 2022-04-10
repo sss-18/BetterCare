@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.spg.bettercareapp.R;
 import com.spg.bettercareapp.adapter.ResidentListAdapter;
+import com.spg.bettercareapp.model.DeleteModel;
 import com.spg.bettercareapp.model.Keys;
 import com.spg.bettercareapp.model.Resident;
 import com.spg.bettercareapp.model.ResidentViewModel;
@@ -40,6 +41,8 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
     OnDeleteClickListener listener = (model, position) -> {
         Log.i(TAG, ":OnDeleteClickListener clicked");
+        // TODO : Uncomment once done
+        //deleteResident(Integer.toString(model.getId()), position);
         models.remove(position);
         adapter.notifyDataSetChanged();
     };
@@ -111,7 +114,8 @@ public class AdminDashboardActivity extends AppCompatActivity {
                 List<Resident> residents = response.body();
 
                 for (Resident resident : residents) {
-                    models.add(new ResidentViewModel(resident.getName(), resident.getDob().toString(), resident.getCare_type(), RowType.ADMIN_ROW_TYPE));
+                    models.add(new ResidentViewModel(resident.getName(), resident.getDob().toString(),
+                            resident.getCare_type(), resident.getResident_id(), RowType.ADMIN_ROW_TYPE));
                 }
                 adapter.addData(models);
             }
@@ -121,5 +125,25 @@ public class AdminDashboardActivity extends AppCompatActivity {
                 Log.d("Resident-Activity", "Fetched Successfully Failed");
             }
         });
+    }
+
+    public void deleteResident(String resident_id, int position) {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<List<DeleteModel>> call = apiInterface.deleteResident(resident_id);
+        call.enqueue(new Callback<List<DeleteModel>>() {
+            @Override
+            public void onResponse(Call<List<DeleteModel>> call, Response<List<DeleteModel>> response) {
+                if(response.isSuccessful()){
+                    Log.d("Resident-Activity", "Deleted Successfully");
+                    models.remove(position);
+                    adapter.notifyDataSetChanged();
+                }
+            }
+            @Override
+            public void onFailure(Call<List<DeleteModel>> call, Throwable t) {
+                Log.d("Resident-Activity", "Deleted Failed");
+            }
+        });
+
     }
 }

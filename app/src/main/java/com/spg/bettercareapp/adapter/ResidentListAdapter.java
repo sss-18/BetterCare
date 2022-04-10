@@ -31,12 +31,12 @@ public class ResidentListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public ResidentListAdapter(Context context, List<ResidentViewModel> models) {
         this.context = context;
-        this.models = new ArrayList<>();
+        this.models = models;
         inflater = LayoutInflater.from(context);
     }
 
     public void addData(List<ResidentViewModel> item) {
-        models.addAll(item);
+        models = item;
         notifyDataSetChanged();
     }
 
