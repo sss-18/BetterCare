@@ -127,7 +127,7 @@ public class AddResidentActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                String date = makeDateString(day, month, year);
+                String date = makeDateStringForDB(year, month, day);
                 dateOfBirthValue.setText(date);
                 selYear = year;
             }
@@ -148,6 +148,11 @@ public class AddResidentActivity extends AppCompatActivity {
     private String makeDateString(int day, int month, int year) {
         return getMonthFormat(month) + " " + day + " " + year;
     }
+
+    private String makeDateStringForDB(int day, int month, int year) {
+        return day + "-" + month + "-" + year;
+    }
+
 
     private String getMonthFormat(int month) {
         if (month == 1)
@@ -221,10 +226,11 @@ public class AddResidentActivity extends AppCompatActivity {
         if (isEnabled) {
             name = nameValue.getText().toString();
             roomNo = roomNoValue.getText().toString();
+            String date = dateOfBirthValue.getText().toString();
             // TODO : Update this with real time data from user
-            //saveRequest(name, "2021-01-01", "Single", "Male", roomNo);
+            //saveRequest(name, date, "Single", gender, roomNo);
 
-            ResidentViewModel model = new ResidentViewModel(name,
+           ResidentViewModel model = new ResidentViewModel(name,
                     Integer.toString(currYear - selYear),
                     "test",
                     10,
@@ -252,7 +258,7 @@ public class AddResidentActivity extends AppCompatActivity {
                 Log.d("Add Resident-Activity", "Save Successfully");
                 Resident resident = response.body().get(0);
                 ResidentViewModel model;
-                if(resident!=null){
+                if (resident != null) {
                     model = new ResidentViewModel(resident.getName(),
                             Integer.toString(currYear - selYear),
                             resident.getCare_type(),
@@ -260,7 +266,7 @@ public class AddResidentActivity extends AppCompatActivity {
                             resident.getSex(),
                             resident.getRoom_no(),
                             RowType.ADMIN_ROW_TYPE);
-                }else{
+                } else {
                     model = new ResidentViewModel(name,
                             Integer.toString(currYear - selYear),
                             "test",
