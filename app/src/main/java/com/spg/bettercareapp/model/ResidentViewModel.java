@@ -10,6 +10,19 @@ public class ResidentViewModel implements IResidentViewModel, Parcelable {
     private String age;
     private String careType;
     private int id;
+    private String sex;
+    private int roomNo;
+
+    public ResidentViewModel(String name, String age, String careType, int id, String sex, int roomNo, RowType rowType) {
+        this.name = name;
+        this.age = age;
+        this.careType = careType;
+        this.id = id;
+        this.sex = sex;
+        this.roomNo = roomNo;
+        this.rowType = rowType;
+    }
+
     private RowType rowType;
 
     public ResidentViewModel(String name, String age, String careType, int id, RowType rowType) {
@@ -26,25 +39,6 @@ public class ResidentViewModel implements IResidentViewModel, Parcelable {
         this.careType = careType;
         this.rowType = rowType;
     }
-
-    protected ResidentViewModel(Parcel in) {
-        name = in.readString();
-        age = in.readString();
-        careType = in.readString();
-        id = in.readInt();
-    }
-
-    public static final Creator<ResidentViewModel> CREATOR = new Creator<ResidentViewModel>() {
-        @Override
-        public ResidentViewModel createFromParcel(Parcel in) {
-            return new ResidentViewModel(in);
-        }
-
-        @Override
-        public ResidentViewModel[] newArray(int size) {
-            return new ResidentViewModel[size];
-        }
-    };
 
     public String getName() {
         return name;
@@ -78,6 +72,43 @@ public class ResidentViewModel implements IResidentViewModel, Parcelable {
         this.id = id;
     }
 
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public int getRoomNo() {
+        return roomNo;
+    }
+
+    public void setRoomNo(int roomNo) {
+        this.roomNo = roomNo;
+    }
+
+    protected ResidentViewModel(Parcel in) {
+        name = in.readString();
+        age = in.readString();
+        careType = in.readString();
+        id = in.readInt();
+        sex = in.readString();
+        roomNo = in.readInt();
+    }
+
+    public static final Creator<ResidentViewModel> CREATOR = new Creator<ResidentViewModel>() {
+        @Override
+        public ResidentViewModel createFromParcel(Parcel in) {
+            return new ResidentViewModel(in);
+        }
+
+        @Override
+        public ResidentViewModel[] newArray(int size) {
+            return new ResidentViewModel[size];
+        }
+    };
+
     @Override
     public void set(RowType rowType) {
         this.rowType = rowType;
@@ -87,6 +118,7 @@ public class ResidentViewModel implements IResidentViewModel, Parcelable {
     public RowType get() {
         return rowType;
     }
+
 
     @Override
     public int describeContents() {
@@ -99,5 +131,7 @@ public class ResidentViewModel implements IResidentViewModel, Parcelable {
         parcel.writeString(age);
         parcel.writeString(careType);
         parcel.writeInt(id);
+        parcel.writeString(sex);
+        parcel.writeInt(roomNo);
     }
 }

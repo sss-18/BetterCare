@@ -21,7 +21,6 @@ import com.spg.bettercareapp.R;
 import com.spg.bettercareapp.adapter.SpinnerAdapter;
 import com.spg.bettercareapp.model.Keys;
 import com.spg.bettercareapp.model.Resident;
-import com.spg.bettercareapp.model.ResidentDetail;
 import com.spg.bettercareapp.model.ResidentViewModel;
 import com.spg.bettercareapp.model.RowType;
 import com.spg.bettercareapp.model.Sex;
@@ -60,11 +59,11 @@ public class AddResidentActivity extends AppCompatActivity {
 
     private boolean isEnabled = false;
     private DatePickerDialog datePickerDialog;
-    ResidentDetail residentDetail = new ResidentDetail();
     public static final String TAG = "AddResidentActivity";
-    private int currYear,selYear;
+    private int currYear, selYear;
+    private String gender;
     OnGenderClickListener listener = (gender) -> {
-        residentDetail.setSex(gender);
+        this.gender = gender;
     };
 
     @Override
@@ -112,7 +111,7 @@ public class AddResidentActivity extends AppCompatActivity {
         int month = cal.get(Calendar.MONTH);
         month = month + 1;
         int day = cal.get(Calendar.DAY_OF_MONTH);
-        currYear=year;
+        currYear = year;
         return makeDateString(day, month, year);
     }
 
@@ -123,7 +122,7 @@ public class AddResidentActivity extends AppCompatActivity {
                 month = month + 1;
                 String date = makeDateString(day, month, year);
                 dateOfBirthValue.setText(date);
-                selYear=year;
+                selYear = year;
             }
         };
 
@@ -216,19 +215,22 @@ public class AddResidentActivity extends AppCompatActivity {
             String name = nameValue.getText().toString();
             String date = dateOfBirthValue.getText().toString();
             String roomNo = roomNoValue.getText().toString();
-            residentDetail.setName(name);
-            residentDetail.setDateOfBirth(date);
-            residentDetail.setRoomNo(roomNo);
             // TODO : Update this with real time data from user
             //saveRequest(name, "2021-01-01", "Single", "Male", roomNo);
 
-            ResidentViewModel model = new ResidentViewModel(name,Integer.toString(currYear-selYear),"test",RowType.ADMIN_ROW_TYPE);
-            Log.i(TAG, "onSaveClick: " + residentDetail.toString()+" model->"+model.get().toString());
+            ResidentViewModel model = new ResidentViewModel(name,
+                    Integer.toString(currYear - selYear),
+                    "test",
+                    10,
+                    this.gender,
+                    Integer.parseInt(roomNo),
+                    RowType.ADMIN_ROW_TYPE);
+            Log.i(TAG, "onSaveClick: " + " model->" + model.get().toString());
 
             //if success then
-            Intent intent = new Intent(this,AdminDashboardActivity.class);
-            intent.putExtra(Keys.ADD_RESIDENT_KEY,model);
-            setResult(0020,intent);
+            Intent intent = new Intent(this, AdminDashboardActivity.class);
+            intent.putExtra(Keys.ADD_RESIDENT_KEY, model);
+            setResult(0020, intent);
             finish();
             //if failure
             Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG);
@@ -244,10 +246,12 @@ public class AddResidentActivity extends AppCompatActivity {
                 Log.d("Add Resident-Activity", "Save Successfully");
                 Resident resident = response.body().get(0);
                 ResidentViewModel model = new ResidentViewModel(resident.getName(),
-                        resident.getDob().toString(),
+                        Integer.toString(currYear - selYear),
                         resident.getCare_type(),
+                        resident.getResident_id(),
+                        resident.getSex(),
+                        resident.getRoom_no(),
                         RowType.ADMIN_ROW_TYPE);
-
                 //if success then
                 Intent intent = new Intent(AddResidentActivity.this, AdminDashboardActivity.class);
                 // TODO: key = resident.id
@@ -258,7 +262,7 @@ public class AddResidentActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Resident>> call, Throwable t) {
-                Log.d("Add Resident-Activity", "Save Failed "+t);
+                Log.d("Add Resident-Activity", "Save Failed " + t);
                 Toast.makeText(AddResidentActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
             }
         });
