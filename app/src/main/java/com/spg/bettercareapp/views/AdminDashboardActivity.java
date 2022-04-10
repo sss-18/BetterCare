@@ -95,11 +95,11 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
     private List<ResidentViewModel> getDummyData() {
         models = new ArrayList<>();
-        models.add(new ResidentViewModel("ross", "30", "test", 0,RowType.ADMIN_ROW_TYPE));
-        models.add(new ResidentViewModel("peter", "35", "test", 1,RowType.ADMIN_ROW_TYPE));
-        models.add(new ResidentViewModel("mark ", "15", "test", 2,RowType.ADMIN_ROW_TYPE));
-        models.add(new ResidentViewModel("meg", "30", "test", 3,RowType.ADMIN_ROW_TYPE));
-        models.add(new ResidentViewModel("robert", "30", "test", 4,RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("ross", "30", "test",0,"male",0001,RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("peter", "35", "test", 1,"male",0001,RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("mark ", "15", "test", 2,"male",0001,RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("meg", "30", "test", 3,"male",0001,RowType.ADMIN_ROW_TYPE));
+        models.add(new ResidentViewModel("robert", "30", "test", 4,"male",0001,RowType.ADMIN_ROW_TYPE));
         return models;
     }
 
