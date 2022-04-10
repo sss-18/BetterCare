@@ -17,6 +17,7 @@ import com.spg.bettercareapp.views.OnDeleteClickListener;
 import com.spg.bettercareapp.views.OnResidentClickListener;
 import com.spg.bettercareapp.views.OnResidentInfoClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ResidentListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -28,13 +29,14 @@ public class ResidentListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     LayoutInflater inflater;
     List<ResidentViewModel> models;
 
-    public ResidentListAdapter(Context context) {
+    public ResidentListAdapter(Context context, List<ResidentViewModel> models) {
         this.context = context;
+        this.models = new ArrayList<>();
         inflater = LayoutInflater.from(context);
     }
 
-    public void addData(List<ResidentViewModel> models) {
-        this.models = models;
+    public void addData(List<ResidentViewModel> item) {
+        models.addAll(item);
         notifyDataSetChanged();
     }
 
