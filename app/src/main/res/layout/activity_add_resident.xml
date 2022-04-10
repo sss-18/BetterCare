@@ -8,6 +8,35 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:clickable="true">
+    <TextView
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:drawableStart="@drawable/ic_arrow_left"
+        android:drawablePadding="@dimen/dimen_10dp"
+        android:text="Back"
+        android:textColor="@color/grey_white"
+        android:textSize="@dimen/dimen_16sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/title"
+        app:layout_constraintBottom_toBottomOf="@+id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_10dp"
+        android:text="Add"
+        android:textColor="@color/grey_white"
+        android:textSize="@dimen/dimen_22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/add_resident_title"

@@ -10,6 +10,7 @@ import com.spg.bettercareapp.model.Keys;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class VisitationActivity extends AppCompatActivity {
     int id;
@@ -45,5 +46,10 @@ public class VisitationActivity extends AppCompatActivity {
         } else {
             finish();
         }
+    }
+
+    @OnClick(R.id.back_btn)
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

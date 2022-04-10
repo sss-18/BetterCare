@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +18,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MoodActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     @BindView(R.id.mood_spinner)
@@ -93,5 +93,10 @@ public class MoodActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    @OnClick(R.id.back_btn)
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
