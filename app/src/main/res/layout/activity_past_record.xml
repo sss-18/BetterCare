@@ -82,29 +82,29 @@
                 app:layout_constraintTop_toTopOf="@+id/name_title" />
 
             <TextView
-                android:id="@+id/date_of_birth_title"
+                android:id="@+id/age_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_60dp"
                 android:fontFamily="sans-serif"
-                android:text="DOB:"
+                android:text="Age:"
                 android:textSize="@dimen/dimen_18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/name_title"
                 app:layout_constraintTop_toBottomOf="@+id/name_title" />
 
             <TextView
-                android:id="@+id/date_of_birth_value"
+                android:id="@+id/age_value"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/dimen_60dp"
                 android:background="@drawable/custom_input"
                 android:gravity="center_vertical|start"
                 android:paddingStart="@dimen/dimen_12dp"
                 android:paddingEnd="@dimen/dimen_12dp"
-                android:text="1998-12-09"
+                android:text="33"
                 android:textSize="@dimen/dimen_18sp"
                 android:textStyle="normal"
-                app:layout_constraintBaseline_toBaselineOf="@+id/date_of_birth_title"
+                app:layout_constraintBaseline_toBaselineOf="@+id/age_title"
                 app:layout_constraintEnd_toEndOf="@+id/name_value"
                 app:layout_constraintStart_toStartOf="@+id/name_value"
                 app:layout_constraintTop_toBottomOf="@+id/name_value" />
@@ -118,8 +118,8 @@
                 android:text="@string/sex"
                 android:textSize="@dimen/dimen_18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/date_of_birth_title"
-                app:layout_constraintTop_toBottomOf="@+id/date_of_birth_title" />
+                app:layout_constraintStart_toStartOf="@+id/age_title"
+                app:layout_constraintTop_toBottomOf="@+id/age_title" />
 
             <TextView
                 android:id="@+id/sex_value"
@@ -133,9 +133,9 @@
                 android:textSize="@dimen/dimen_18sp"
                 android:textStyle="normal"
                 app:layout_constraintBaseline_toBaselineOf="@+id/sex_title"
-                app:layout_constraintEnd_toEndOf="@+id/date_of_birth_value"
-                app:layout_constraintStart_toStartOf="@+id/date_of_birth_value"
-                app:layout_constraintTop_toBottomOf="@+id/date_of_birth_value" />
+                app:layout_constraintEnd_toEndOf="@+id/age_value"
+                app:layout_constraintStart_toStartOf="@+id/age_value"
+                app:layout_constraintTop_toBottomOf="@+id/age_value" />
 
             <TextView
                 android:id="@+id/room_no_title"
@@ -252,6 +252,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="false"
+                    android:clickable="false"
                     app:layout_constraintBottom_toBottomOf="@+id/bathing_title"
                     app:layout_constraintEnd_toEndOf="@+id/bathing_title"
                     app:layout_constraintTop_toTopOf="@+id/bathing_title" />
