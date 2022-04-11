@@ -1,18 +1,27 @@
 package com.spg.bettercareapp.views;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.spg.bettercareapp.R;
+import com.spg.bettercareapp.model.Keys;
+import com.spg.bettercareapp.model.ResidentViewModel;
+
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class PastRecordActivity extends AppCompatActivity {
     @BindView(R.id.personal_care)
@@ -41,7 +50,6 @@ public class PastRecordActivity extends AppCompatActivity {
     CheckBox threeFifty;
     @BindView(R.id.more_than_350)
     CheckBox moreThan350;
-
 
 
     @BindView(R.id.meal)
@@ -85,6 +93,25 @@ public class PastRecordActivity extends AppCompatActivity {
     @BindView(R.id.other_value)
     TextView otherValue;
 
+
+    @BindView(R.id.date_value)
+    Button dateValue;
+
+    @BindView(R.id.name_value)
+    TextView nameValue;
+
+    @BindView(R.id.age_value)
+    TextView ageValue;
+
+    @BindView(R.id.sex_value)
+    TextView sexValue;
+
+    @BindView(R.id.room_no_value)
+    TextView roomNoValue;
+
+    private DatePickerDialog datePickerDialog;
+    private ResidentViewModel model;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,12 +121,16 @@ public class PastRecordActivity extends AppCompatActivity {
         setUp();
     }
 
-    private void setUp(){
+    private void setUp() {
         //setInVisibility();
-
+        receiveIntent();
+        setUpDate();
+        bathing.setChecked(true);
     }
-    private void setInVisibility(){
-        personalCare.setVisibility(View.GONE); ;
+
+    private void setInVisibility() {
+        personalCare.setVisibility(View.GONE);
+        ;
         fluid.setVisibility(View.GONE);
         meal.setVisibility(View.GONE);
         mood.setVisibility(View.GONE);
@@ -108,5 +139,70 @@ public class PastRecordActivity extends AppCompatActivity {
         visitation.setVisibility(View.GONE);
         weaklyCatalogue.setVisibility(View.GONE);
         other.setVisibility(View.GONE);
+    }
+    private void receiveIntent(){
+        if(getIntent()!=null && getIntent().getParcelableExtra(Keys.MODEL_KEY)!=null){
+            this.model = getIntent().getParcelableExtra(Keys.MODEL_KEY);
+            nameValue.setText(model.getName());
+            ageValue.setText(model.getAge());
+            sexValue.setText(model.getSex());
+            roomNoValue.setText(Integer.toString(model.getRoomNo()));
+        }
+    }
+    private void setUpDate() {
+        initDatePicker();
+        dateValue.setText(getTodaysDate());
+    }
+
+    private String getTodaysDate() {
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        month = month + 1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        return makeDateString(day, month, year);
+    }
+
+    private void initDatePicker() {
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                String date = makeDateString(day, month, year);
+                dateValue.setText(date);
+            }
+        };
+
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        int style = AlertDialog.THEME_HOLO_LIGHT;
+
+        datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
+        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+
+    }
+
+    private String makeDateString(int day, int month, int year) {
+        String date = Integer.toString(year);
+        if (month < 10) date = date + "-0" + Integer.toString(month);
+        else date = date + "-" + Integer.toString(month);
+
+        if (day < 10) date = date + "-0" + Integer.toString(day);
+        else date = date + "-" + Integer.toString(day);
+
+        return date;
+    }
+
+    @OnClick(R.id.date_value)
+    public void openDatePicker(View view) {
+        datePickerDialog.show();
+    }
+
+    @OnClick(R.id.btn_search)
+    public void onSearchClicked(){
+
     }
 }
