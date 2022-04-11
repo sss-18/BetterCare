@@ -2,7 +2,7 @@ package com.spg.bettercareapp.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DeleteModel {
+public class RowChangeModel {
     @SerializedName("count")
     private int count;
 

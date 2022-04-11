@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.spg.bettercareapp.R;
 import com.spg.bettercareapp.adapter.ResidentListAdapter;
-import com.spg.bettercareapp.model.DeleteModel;
+import com.spg.bettercareapp.model.RowChangeModel;
 import com.spg.bettercareapp.model.Keys;
 import com.spg.bettercareapp.model.Resident;
 import com.spg.bettercareapp.model.ResidentViewModel;
@@ -19,6 +19,9 @@ import com.spg.bettercareapp.model.RowType;
 import com.spg.bettercareapp.repo.ApiClient;
 import com.spg.bettercareapp.repo.ApiInterface;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -117,8 +120,19 @@ public class AdminDashboardActivity extends AppCompatActivity {
                 List<Resident> residents = response.body();
 
                 for (Resident resident : residents) {
-                    models.add(new ResidentViewModel(resident.getName(), resident.getDob().toString(),
-                            resident.getCare_type(), resident.getResident_id(), RowType.ADMIN_ROW_TYPE));
+                    DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+                    DateFormat formatter1 = new SimpleDateFormat("dd.MM.yyyy");
+                    String date = null;
+                    try {
+                        date = formatter1.format(formatter.parse(resident.getDob().toString()));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+                    models.add(new ResidentViewModel(resident.getName(), date,
+                            resident.getCare_type(), resident.getResident_id(), resident.getSex(),
+                            resident.getRoom_no(), RowType.ADMIN_ROW_TYPE));
+
                 }
                 adapter.addData(models);
             }
@@ -132,10 +146,10 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
     public void deleteResident(String resident_id, int position) {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<List<DeleteModel>> call = apiInterface.deleteResident(resident_id);
-        call.enqueue(new Callback<List<DeleteModel>>() {
+        Call<List<RowChangeModel>> call = apiInterface.deleteResident(resident_id);
+        call.enqueue(new Callback<List<RowChangeModel>>() {
             @Override
-            public void onResponse(Call<List<DeleteModel>> call, Response<List<DeleteModel>> response) {
+            public void onResponse(Call<List<RowChangeModel>> call, Response<List<RowChangeModel>> response) {
                 if(response.isSuccessful()){
                     Log.d("Resident-Activity", "Deleted Successfully");
                     models.remove(position);
@@ -143,10 +157,9 @@ public class AdminDashboardActivity extends AppCompatActivity {
                 }
             }
             @Override
-            public void onFailure(Call<List<DeleteModel>> call, Throwable t) {
+            public void onFailure(Call<List<RowChangeModel>> call, Throwable t) {
                 Log.d("Resident-Activity", "Deleted Failed");
             }
         });
-
     }
 }
