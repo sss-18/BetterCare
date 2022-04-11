@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.spg.bettercareapp.R;
 import com.spg.bettercareapp.adapter.ResidentListAdapter;
-import com.spg.bettercareapp.model.DeleteModel;
+import com.spg.bettercareapp.model.RowChangeModel;
 import com.spg.bettercareapp.model.Keys;
 import com.spg.bettercareapp.model.Resident;
 import com.spg.bettercareapp.model.ResidentViewModel;
@@ -143,10 +143,10 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
     public void deleteResident(String resident_id, int position) {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<List<DeleteModel>> call = apiInterface.deleteResident(resident_id);
-        call.enqueue(new Callback<List<DeleteModel>>() {
+        Call<List<RowChangeModel>> call = apiInterface.deleteResident(resident_id);
+        call.enqueue(new Callback<List<RowChangeModel>>() {
             @Override
-            public void onResponse(Call<List<DeleteModel>> call, Response<List<DeleteModel>> response) {
+            public void onResponse(Call<List<RowChangeModel>> call, Response<List<RowChangeModel>> response) {
                 if(response.isSuccessful()){
                     Log.d("Resident-Activity", "Deleted Successfully");
                     models.remove(position);
@@ -154,7 +154,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
                 }
             }
             @Override
-            public void onFailure(Call<List<DeleteModel>> call, Throwable t) {
+            public void onFailure(Call<List<RowChangeModel>> call, Throwable t) {
                 Log.d("Resident-Activity", "Deleted Failed");
             }
         });

@@ -5,7 +5,7 @@ import com.spg.bettercareapp.model.Admin;
 import com.spg.bettercareapp.model.Care;
 import com.spg.bettercareapp.model.Catalogue;
 import com.spg.bettercareapp.model.DailyActivity;
-import com.spg.bettercareapp.model.DeleteModel;
+import com.spg.bettercareapp.model.RowChangeModel;
 import com.spg.bettercareapp.model.Fluid;
 import com.spg.bettercareapp.model.Meal;
 import com.spg.bettercareapp.model.Mood;
@@ -17,7 +17,6 @@ import com.spg.bettercareapp.model.Visit;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -59,7 +58,7 @@ public interface ApiInterface {
     Call<List<Visit>> getVisits(@Query("resident_id") String resident_id, @Query("date") String date);
 
     @GET("removeresident.php")
-    Call<List<DeleteModel>> deleteResident(@Query("resident_id") String resident_id);
+    Call<List<RowChangeModel>> deleteResident(@Query("resident_id") String resident_id);
 
     @GET("setadmin.php")
     Call<List<Admin>> setAdmin(@Query("user_name") String user_name, @Query("password") String password);
@@ -68,7 +67,7 @@ public interface ApiInterface {
     Call<List<Care>> setCareStaff(@Query("user_name") String user_name, @Query("password") String password);
 
     @GET("setpersonalcare.php")
-    Call<List<PersonalCare>> setPersonalCare(@Query("date") String date,
+    Call<List<RowChangeModel>> setPersonalCare(@Query("date") String date,
                                              @Query("resident_id") String resident_id,
                                              @Query("bathing") String bathing,
                                              @Query("skin_care") String skin_care,

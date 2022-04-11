@@ -9,11 +9,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.spg.bettercareapp.R;
 import com.spg.bettercareapp.model.Keys;
+import com.spg.bettercareapp.model.RowChangeModel;
+import com.spg.bettercareapp.repo.ApiClient;
+import com.spg.bettercareapp.repo.ApiInterface;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PersonalCareActivity extends AppCompatActivity {
     int id;
@@ -101,5 +109,27 @@ public class PersonalCareActivity extends AppCompatActivity {
     @OnClick(R.id.back_btn)
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+    public String boolToInt(Boolean bool) {
+        if (bool) return "1";
+        else return "0";
+    }
+
+    public void insertData() {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<List<RowChangeModel>> call = apiInterface.setPersonalCare(date, Integer.toString(id), boolToInt(isBathing), boolToInt(isSkinCare), boolToInt(isOralCare),
+                boolToInt(isDressing), boolToInt(isPadChange), boolToInt(isHairCare));
+        call.enqueue(new Callback<List<RowChangeModel>>() {
+            @Override
+            public void onResponse(Call<List<RowChangeModel>> call, Response<List<RowChangeModel>> response) {
+                Log.d("Personal Care Activity","Successful");
+            }
+
+            @Override
+            public void onFailure(Call<List<RowChangeModel>> call, Throwable t) {
+                Log.d("Personal Care Activity","Failed");
+            }
+        });
     }
 }
