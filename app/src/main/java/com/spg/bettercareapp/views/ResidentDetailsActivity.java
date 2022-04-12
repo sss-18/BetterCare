@@ -83,9 +83,8 @@ public class ResidentDetailsActivity extends AppCompatActivity {
     private void initAdapter() {
         adapter = new ResidentListAdapter(this, model);
         adapter.setOnResidentInfoClickListener(listener);
-        // TODO : Uncomment once done with development
-        //fetchResidentData();
-        adapter.addData(getDummyData());
+        fetchResidentData();
+        //adapter.addData(getDummyData());
         residentsList.setLayoutManager(new LinearLayoutManager(this));
         residentsList.setAdapter(adapter);
     }

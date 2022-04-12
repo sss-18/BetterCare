@@ -91,6 +91,7 @@ public interface ApiInterface {
     @GET("setmeal.php")
     Call<List<RowChangeModel>> setMeal(@Query("date") String date,
                                        @Query("resident_id") String resident_id,
+                                       @Query("breakfast") String breakfast,
                                        @Query("snack") String snack,
                                        @Query("lunch") String lunch,
                                        @Query("dinner") String dinner);
@@ -122,4 +123,9 @@ public interface ApiInterface {
                                        @Query("250ml") String ml250,
                                        @Query("350ml") String ml350,
                                        @Query("more") String more);
+
+    @GET("setdailyactivity.php")
+    Call<List<RowChangeModel>> setDailyActivity(@Query("date") String date,
+                                            @Query("resident_id") String resident_id,
+                                            @Query("note") String note);
 }

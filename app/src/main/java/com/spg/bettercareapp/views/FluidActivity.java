@@ -89,9 +89,7 @@ public class FluidActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_save)
     public void onSaveClicked() {
-        //make the network call to save the data.
-        // TODO uncomment once done
-        //insertData();
+        insertData();
     }
 
     @OnClick(R.id.back_btn)

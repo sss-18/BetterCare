@@ -94,8 +94,7 @@ public class MoodActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         CustomMoodModel model = (CustomMoodModel) adapterView.getSelectedItem();
         mood = model.getMood();
-        // TODO: Uncomment when done
-        //insertData();
+        insertData();
     }
 
     @Override

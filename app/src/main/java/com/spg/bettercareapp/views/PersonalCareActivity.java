@@ -104,9 +104,7 @@ public class PersonalCareActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_save)
     public void onSaveClicked() {
-        //make the network call to save the s
-        // TODO: Uncomment once done
-        //insertData();
+        insertData();
     }
 
     @OnClick(R.id.back_btn)
