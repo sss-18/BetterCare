@@ -68,13 +68,13 @@ public interface ApiInterface {
 
     @GET("setpersonalcare.php")
     Call<List<RowChangeModel>> setPersonalCare(@Query("date") String date,
-                                             @Query("resident_id") String resident_id,
-                                             @Query("bathing") String bathing,
-                                             @Query("skin_care") String skin_care,
-                                             @Query("oral_care") String oral_care,
-                                             @Query("dressing") String dressing,
-                                             @Query("pad_change") String pad_change,
-                                             @Query("hair_care") String hair_care);
+                                               @Query("resident_id") String resident_id,
+                                               @Query("bathing") String bathing,
+                                               @Query("skin_care") String skin_care,
+                                               @Query("oral_care") String oral_care,
+                                               @Query("dressing") String dressing,
+                                               @Query("pad_change") String pad_change,
+                                               @Query("hair_care") String hair_care);
 
     @GET("setresident.php")
     Call<List<Resident>> setResident(@Query("name") String name,
@@ -82,4 +82,36 @@ public interface ApiInterface {
                                      @Query("care_type") String care_type,
                                      @Query("sex") String sex,
                                      @Query("room_no") String room_no);
+
+    @GET("setaccident.php")
+    Call<List<RowChangeModel>> setAccident(@Query("date") String date,
+                                           @Query("resident_id") String resident_id,
+                                           @Query("note") String note);
+
+    @GET("setmeal.php")
+    Call<List<RowChangeModel>> setMeal(@Query("date") String date,
+                                       @Query("resident_id") String resident_id,
+                                       @Query("snack") String snack,
+                                       @Query("lunch") String lunch,
+                                       @Query("dinner") String dinner);
+
+    @GET("setmood.php")
+    Call<List<RowChangeModel>> setMood(@Query("date") String date,
+                                       @Query("resident_id") String resident_id,
+                                       @Query("mood_type") String mood_type);
+
+    @GET("setothercomment.php")
+    Call<List<RowChangeModel>> setOtherComment(@Query("date") String date,
+                                               @Query("resident_id") String resident_id,
+                                               @Query("note") String note);
+
+    @GET("setvisit.php")
+    Call<List<RowChangeModel>> setVisit(@Query("date") String date,
+                                        @Query("resident_id") String resident_id,
+                                        @Query("note") String note);
+
+    @GET("setcatalogue.php")
+    Call<List<RowChangeModel>> setCatalogue(@Query("date") String date,
+                                            @Query("resident_id") String resident_id,
+                                            @Query("note") String note);
 }
