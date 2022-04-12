@@ -1,10 +1,12 @@
 package com.spg.bettercareapp.views;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +14,9 @@ import com.spg.bettercareapp.R;
 import com.spg.bettercareapp.adapter.MoodSpinnerAdapter;
 import com.spg.bettercareapp.model.CustomMoodModel;
 import com.spg.bettercareapp.model.Keys;
+import com.spg.bettercareapp.model.RowChangeModel;
+import com.spg.bettercareapp.repo.ApiClient;
+import com.spg.bettercareapp.repo.ApiInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +24,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MoodActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     @BindView(R.id.mood_spinner)
@@ -86,8 +94,7 @@ public class MoodActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         CustomMoodModel model = (CustomMoodModel) adapterView.getSelectedItem();
         mood = model.getMood();
-        //got the selected value
-        //use this to save .
+        insertData();
     }
 
     @Override
@@ -98,5 +105,23 @@ public class MoodActivity extends AppCompatActivity implements AdapterView.OnIte
     @OnClick(R.id.back_btn)
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+    public void insertData() {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<List<RowChangeModel>> call = apiInterface.setMood(date, Integer.toString(id), mood);
+        call.enqueue(new Callback<List<RowChangeModel>>() {
+            @Override
+            public void onResponse(Call<List<RowChangeModel>> call, Response<List<RowChangeModel>> response) {
+                Log.d("Mood Activity", "Successful");
+                Toast.makeText(MoodActivity.this, "Saved Successfully", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<List<RowChangeModel>> call, Throwable t) {
+                Log.d("Mood Activity", "Failed");
+                Toast.makeText(MoodActivity.this, "Saved Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

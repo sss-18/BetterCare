@@ -18,6 +18,9 @@ import com.spg.bettercareapp.model.RowType;
 import com.spg.bettercareapp.repo.ApiClient;
 import com.spg.bettercareapp.repo.ApiInterface;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -80,9 +83,8 @@ public class ResidentDetailsActivity extends AppCompatActivity {
     private void initAdapter() {
         adapter = new ResidentListAdapter(this, model);
         adapter.setOnResidentInfoClickListener(listener);
-        // TODO : Uncomment once done with development
-        //fetchResidentData();
-        adapter.addData(getDummyData());
+        fetchResidentData();
+        //adapter.addData(getDummyData());
         residentsList.setLayoutManager(new LinearLayoutManager(this));
         residentsList.setAdapter(adapter);
     }
@@ -109,7 +111,19 @@ public class ResidentDetailsActivity extends AppCompatActivity {
                 List<Resident> residents = response.body();
 
                 for (Resident resident : residents) {
-                    models.add(new ResidentViewModel(resident.getName(), resident.getDob().toString(), resident.getCare_type(), RowType.CARE_PERSON_ROW_TYPE));
+                    DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+                    DateFormat formatter1 = new SimpleDateFormat("dd.MM.yyyy");
+                    String date = null;
+                    try {
+                        date = formatter1.format(formatter.parse(resident.getDob().toString()));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+                    models.add(new ResidentViewModel(resident.getName(), date,
+                            resident.getCare_type(), resident.getResident_id(), resident.getSex(),
+                            resident.getRoom_no(), RowType.CARE_PERSON_ROW_TYPE));
+
                 }
                 adapter.addData(models);
             }

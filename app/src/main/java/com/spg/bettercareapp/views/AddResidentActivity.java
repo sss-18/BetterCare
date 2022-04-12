@@ -228,9 +228,9 @@ public class AddResidentActivity extends AppCompatActivity {
             roomNo = roomNoValue.getText().toString();
             String date = dateOfBirthValue.getText().toString();
             // TODO : Update this with real time data from user
-            //saveRequest(name, date, "Single", gender, roomNo);
+            saveRequest(name, date, "Single", gender, roomNo);
 
-           ResidentViewModel model = new ResidentViewModel(name,
+           /*ResidentViewModel model = new ResidentViewModel(name,
                     Integer.toString(currYear - selYear),
                     "test",
                     10,
@@ -245,7 +245,7 @@ public class AddResidentActivity extends AppCompatActivity {
             setResult(0020, intent);
             finish();
             //if failure
-            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG);
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG);*/
         }
     }
 

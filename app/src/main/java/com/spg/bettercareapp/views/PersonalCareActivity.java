@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -103,7 +104,7 @@ public class PersonalCareActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_save)
     public void onSaveClicked() {
-        //make the network call to save the s
+        insertData();
     }
 
     @OnClick(R.id.back_btn)
@@ -124,11 +125,13 @@ public class PersonalCareActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<RowChangeModel>> call, Response<List<RowChangeModel>> response) {
                 Log.d("Personal Care Activity","Successful");
+                Toast.makeText(PersonalCareActivity.this, "Saved Successfully", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<List<RowChangeModel>> call, Throwable t) {
                 Log.d("Personal Care Activity","Failed");
+                Toast.makeText(PersonalCareActivity.this, "Saved Failed", Toast.LENGTH_SHORT).show();
             }
         });
     }
