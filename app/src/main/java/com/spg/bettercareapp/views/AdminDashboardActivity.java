@@ -23,6 +23,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
@@ -44,10 +45,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
     OnDeleteClickListener listener = (model, position) -> {
         Log.i(TAG, ":OnDeleteClickListener clicked");
-        // TODO : Uncomment once done
-        //deleteResident(Integer.toString(model.getId()), position);
-        models.remove(position);
-        adapter.notifyDataSetChanged();
+        deleteResident(Integer.toString(model.getId()), position);
     };
     OnResidentClickListener residentClickListener = (model) -> {
         Log.i(TAG, "residentClickListener: clicked");
@@ -75,8 +73,8 @@ public class AdminDashboardActivity extends AppCompatActivity {
         adapter.setOnDeleteClickListener(listener);
         adapter.setOnResidentClickListener(residentClickListener);
         // TODO : Uncomment once done with development
-        //fetchResidentData();
-        adapter.addData(getDummyData());
+        fetchResidentData();
+        //adapter.addData(getDummyData());
         residentsList.setLayoutManager(new LinearLayoutManager(this));
         residentsList.setAdapter(adapter);
     }
@@ -129,7 +127,14 @@ public class AdminDashboardActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                    models.add(new ResidentViewModel(resident.getName(), date,
+                    String str[] = date.split("\\.");
+                    int year = Integer.parseInt(str[2]);
+
+                    Calendar calendar = Calendar.getInstance();
+                    int currYear = calendar.get(Calendar.YEAR);
+
+
+                    models.add(new ResidentViewModel(resident.getName(), Integer.toString(currYear-year),
                             resident.getCare_type(), resident.getResident_id(), resident.getSex(),
                             resident.getRoom_no(), RowType.ADMIN_ROW_TYPE));
 
