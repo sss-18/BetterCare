@@ -114,4 +114,12 @@ public interface ApiInterface {
     Call<List<RowChangeModel>> setCatalogue(@Query("date") String date,
                                             @Query("resident_id") String resident_id,
                                             @Query("note") String note);
+
+    @GET("setfluid.php")
+    Call<List<RowChangeModel>> setFluid(@Query("date") String date,
+                                       @Query("resident_id") String resident_id,
+                                       @Query("150ml") String ml150,
+                                       @Query("250ml") String ml250,
+                                       @Query("350ml") String ml350,
+                                       @Query("more") String more);
 }
