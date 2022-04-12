@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BetterCareApp">
         <activity
+            android:name=".views.PastRecordActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.OtherActivity"
             android:exported="false" />
         <activity
