@@ -61,10 +61,10 @@ public interface ApiInterface {
     Call<List<RowChangeModel>> deleteResident(@Query("resident_id") String resident_id);
 
     @GET("setadmin.php")
-    Call<List<Admin>> setAdmin(@Query("user_name") String user_name, @Query("password") String password);
+    Call<List<RowChangeModel>> setAdmin(@Query("user_name") String user_name, @Query("password") String password);
 
     @GET("setcarestaff.php")
-    Call<List<Care>> setCareStaff(@Query("user_name") String user_name, @Query("password") String password);
+    Call<List<RowChangeModel>> setCareStaff(@Query("user_name") String user_name, @Query("password") String password);
 
     @GET("setpersonalcare.php")
     Call<List<RowChangeModel>> setPersonalCare(@Query("date") String date,

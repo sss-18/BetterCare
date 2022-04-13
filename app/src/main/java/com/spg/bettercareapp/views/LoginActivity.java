@@ -47,6 +47,9 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.password)
     EditText password;
 
+    @BindView(R.id.sign_up)
+    Button signUp;
+
     private boolean isEnabled = false;
     private boolean isPassError = false;
     private boolean isEmailError = false;
@@ -175,6 +178,13 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             btnLogin.setEnabled(false);
         }
+    }
+
+    @OnClick(R.id.sign_up)
+    public void onSignUpClick() {
+        Intent intent = new Intent(this, SignUpActivity.class);
+        intent.putExtra(Keys.LOGIN_KEY, loginKey);
+        startActivity(intent);
     }
 
     @OnClick(R.id.btn_login)
