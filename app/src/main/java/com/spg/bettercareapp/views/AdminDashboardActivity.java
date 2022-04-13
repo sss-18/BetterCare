@@ -1,10 +1,12 @@
 package com.spg.bettercareapp.views;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,8 +47,22 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
     OnDeleteClickListener listener = (model, position) -> {
         Log.i(TAG, ":OnDeleteClickListener clicked");
-        deleteResident(Integer.toString(model.getId()), position);
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Delete entry");
+        alert.setMessage("Are you sure you want to delete?");
+        alert.setPositiveButton(android.R.string.yes, (dialog, which) -> {
+            // continue with delete
+            deleteResident(Integer.toString(model.getId()), position);
+        });
+        alert.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // close dialog
+                dialog.cancel();
+            }
+        });
+        alert.show();
     };
+
     OnResidentClickListener residentClickListener = (model) -> {
         Log.i(TAG, "residentClickListener: clicked");
         Intent intent = new Intent(this,PastRecordActivity.class);

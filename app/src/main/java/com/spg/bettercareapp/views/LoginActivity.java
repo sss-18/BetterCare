@@ -47,6 +47,9 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.password)
     EditText password;
 
+    @BindView(R.id.sign_up)
+    Button signUp;
+
     private boolean isEnabled = false;
     private boolean isPassError = false;
     private boolean isEmailError = false;
@@ -177,6 +180,13 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    @OnClick(R.id.sign_up)
+    public void onSignUpClick() {
+        Intent intent = new Intent(this, SignUpActivity.class);
+        intent.putExtra(Keys.LOGIN_KEY, loginKey);
+        startActivity(intent);
+    }
+
     @OnClick(R.id.btn_login)
     public void onLoginClicked() {
         btnLogin.setEnabled(isEnabled);
@@ -185,13 +195,9 @@ public class LoginActivity extends AppCompatActivity {
             String pass = password.getText().toString();
 
             if (loginKey.equals("Admin")) {
-                startActivity(new Intent(LoginActivity.this, AdminDashboardActivity.class));
-                // TODO : Uncomment once done
-                //authAdminCredential(username, pass);
+                authAdminCredential(username, pass);
             } else if (loginKey.equals("Care Staff")) {
-                startActivity(new Intent(LoginActivity.this, ChooseShiftActivity.class));
-                // TODO : Uncomment once done
-                //authCareStaffCredential(username, pass);
+                authCareStaffCredential(username, pass);
             } else {
                 Toast.makeText(this, "Invalid login credentials", Toast.LENGTH_SHORT).show();
             }
@@ -206,8 +212,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Admin>> call, Response<List<Admin>> response) {
                 Log.d("Login-Activity", "Fetched Successfully Admin");
-                response.body();
-                if (password.equals(response.body().get(0).getPassword())) {
+
+                assert response.body() != null;
+                if (response.body().size() != 0 && password.equals(response.body().get(0).getPassword())) {
                     startActivity(new Intent(LoginActivity.this, AdminDashboardActivity.class));
                 } else {
                     Toast.makeText(LoginActivity.this, "Invalid login credentials", Toast.LENGTH_SHORT).show();
@@ -229,8 +236,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Care>> call, Response<List<Care>> response) {
                 Log.d("Login-Activity", "Fetched Successfully Care-Staff");
-                response.body();
-                if (password.equals(response.body().get(0).getPassword())) {
+                assert response.body() != null;
+                if (response.body().size() != 0 && password.equals(response.body().get(0).getPassword())) {
                     startActivity(new Intent(LoginActivity.this, ChooseShiftActivity.class));
                 } else {
                     Toast.makeText(LoginActivity.this, "Invalid login credentials", Toast.LENGTH_SHORT).show();
