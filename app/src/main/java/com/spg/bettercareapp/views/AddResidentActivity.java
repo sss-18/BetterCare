@@ -207,6 +207,7 @@ public class AddResidentActivity extends AppCompatActivity implements AdapterVie
         careTypeValue = (String) adapterView.getSelectedItem();
 
         //This is the place where the care type is being set
+
         Log.i(TAG, "onItemSelected: " + careTypeValue);
 
     }
