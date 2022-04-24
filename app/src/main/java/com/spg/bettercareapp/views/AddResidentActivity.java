@@ -8,6 +8,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -18,6 +20,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.spg.bettercareapp.R;
+import com.spg.bettercareapp.adapter.CareTypeAdapter;
 import com.spg.bettercareapp.adapter.SpinnerAdapter;
 import com.spg.bettercareapp.model.Keys;
 import com.spg.bettercareapp.model.Resident;
@@ -27,6 +30,7 @@ import com.spg.bettercareapp.model.Sex;
 import com.spg.bettercareapp.repo.ApiClient;
 import com.spg.bettercareapp.repo.ApiInterface;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -38,7 +42,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddResidentActivity extends AppCompatActivity {
+public class AddResidentActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     @BindView(R.id.sex_value)
     Spinner spinner;
 
@@ -57,6 +61,9 @@ public class AddResidentActivity extends AppCompatActivity {
     @BindView(R.id.btn_save)
     Button save;
 
+    @BindView(R.id.care_type_value)
+    Spinner careType;
+
     private boolean isEnabled = false;
     private DatePickerDialog datePickerDialog;
     public static final String TAG = "AddResidentActivity";
@@ -65,6 +72,7 @@ public class AddResidentActivity extends AppCompatActivity {
     private String gender;
     private String roomNo;
     private String name;
+    private String careTypeValue;
 
 
     OnGenderClickListener listener = (gender) -> {
@@ -106,6 +114,7 @@ public class AddResidentActivity extends AppCompatActivity {
         });
 
         initDatePicker();
+        initCareType();
         dateOfBirthValue.setText(getTodaysDate());
         roomNoValue.setText("0000");
         nameError.setVisibility(View.GONE);
@@ -118,7 +127,7 @@ public class AddResidentActivity extends AppCompatActivity {
         month = month + 1;
         int day = cal.get(Calendar.DAY_OF_MONTH);
         currYear = year;
-        selYear=currYear;
+        selYear = currYear;
         return makeDateString(day, month, year);
     }
 
@@ -182,6 +191,29 @@ public class AddResidentActivity extends AppCompatActivity {
 
         //default should never happen
         return "JAN";
+    }
+
+    private void initCareType() {
+        List<String> careValue = Arrays.asList("Single", "Double");
+        CareTypeAdapter adapter = new CareTypeAdapter(this, careValue);
+        if (careType != null) {
+            careType.setAdapter(adapter);
+            careType.setOnItemSelectedListener(this);
+        }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        careTypeValue = (String) adapterView.getSelectedItem();
+
+        //This is the place where the care type is being set
+        Log.i(TAG, "onItemSelected: " + careTypeValue);
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 
     @OnClick(R.id.date_of_birth_value)
@@ -291,8 +323,16 @@ public class AddResidentActivity extends AppCompatActivity {
             }
         });
     }
+
     @OnClick(R.id.back_btn)
-    public void onBackPressed(){
+    public void onBackPressed() {
         super.onBackPressed();
     }
+
+    @OnClick(R.id.spinner_image)
+    public void onCareTypeClicked() {
+        careType.performClick();
+    }
+
+
 }

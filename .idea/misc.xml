@@ -39,6 +39,13 @@
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/resident_custom_view.xml" value="0.22" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/resident_info_custom_view.xml" value="0.1796875" />
         <entry key="..\:/Downloads/BetterCareApp/app/src/main/res/layout/spinner_custom_view.xml" value="0.12" />
+        <entry key="app/src/main/res/drawable/custom_care_type.xml" value="0.185" />
+        <entry key="app/src/main/res/drawable/custom_care_type_spinner.xml" value="0.185" />
+        <entry key="app/src/main/res/layout/activity_add_resident.xml" value="0.2907692307692308" />
+        <entry key="app/src/main/res/layout/activity_home_screen.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_mood.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_past_record.xml" value="0.24934036939313983" />
+        <entry key="app/src/main/res/layout/custom_mood_spinner.xml" value="0.2953125" />
       </map>
     </option>
   </component>

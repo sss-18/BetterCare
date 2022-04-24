@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.AddResidentActivity"
+    android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    android:clickable="true">
+    tools:context=".views.AddResidentActivity">
+
     <TextView
         android:id="@+id/back_btn"
         android:layout_width="wrap_content"
@@ -199,4 +200,51 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/choose_care_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_60dp"
+        android:fontFamily="sans-serif"
+        android:text="Care type."
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/room_no_title"
+        app:layout_constraintTop_toBottomOf="@+id/room_no_title" />
+
+    <Spinner
+        android:id="@+id/care_type_value"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_60dp"
+        android:background="@drawable/custom_care_type_spinner"
+        android:ems="10"
+        android:hint=""
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:paddingStart="@dimen/dimen_12dp"
+        android:paddingEnd="@dimen/dimen_12dp"
+        android:spinnerMode="dropdown"
+        android:textColor="@color/grey_white"
+        android:textSize="@dimen/dimen_18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/spinner_image"
+        app:layout_constraintStart_toStartOf="@+id/room_no_value"
+        app:layout_constraintTop_toBottomOf="@+id/room_no_value" />
+
+    <ImageView
+        android:id="@+id/spinner_image"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_60dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:background="@drawable/custom_care_type_spinner"
+        android:layout_gravity="center"
+        android:padding="@dimen/dimen_10dp"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintStart_toEndOf="@+id/care_type_value"
+        app:layout_constraintEnd_toEndOf="@+id/room_no_value"
+        app:layout_constraintTop_toBottomOf="@+id/room_no_value"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
