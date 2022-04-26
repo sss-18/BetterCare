@@ -23,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class WeaklyCatalogueActivity extends AppCompatActivity {
+public class WeeklyCatalogueActivity extends AppCompatActivity {
     int id;
     String date;
     String name;
@@ -79,13 +79,13 @@ public class WeaklyCatalogueActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<RowChangeModel>> call, Response<List<RowChangeModel>> response) {
                 Log.d("Fluid Activity","Successful");
-                Toast.makeText(WeaklyCatalogueActivity.this, "Saved Successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WeeklyCatalogueActivity.this, "Saved Successfully", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<List<RowChangeModel>> call, Throwable t) {
                 Log.d("Fluid Activity","Failed");
-                Toast.makeText(WeaklyCatalogueActivity.this, "Saved Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WeeklyCatalogueActivity.this, "Saved Failed", Toast.LENGTH_SHORT).show();
             }
         });
     }

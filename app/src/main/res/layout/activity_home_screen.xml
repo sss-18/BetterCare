@@ -15,7 +15,7 @@
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
         android:text="@string/better_care"
-        android:textSize="@dimen/dimen_70sp"
+        android:textSize="@dimen/dimen_50sp"
         android:textStyle="bold"
         android:padding="@dimen/dimen_20dp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -31,6 +31,7 @@ public class Sex {
     public static  void initGender(){
         gender.add(new Sex("Male",1));
         gender.add(new Sex("Female",0));
+        gender.add(new Sex("Choose not to say",2));
     }
 
     public static List<Sex> getGender() {

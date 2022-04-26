@@ -19,7 +19,7 @@
             android:name=".views.OtherActivity"
             android:exported="false" />
         <activity
-            android:name=".views.WeaklyCatalogueActivity"
+            android:name=".views.WeeklyCatalogueActivity"
             android:exported="false" />
         <activity
             android:name=".views.VisitationActivity"
