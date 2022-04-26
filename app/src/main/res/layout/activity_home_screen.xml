@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.HomeScreenActivity">
+    tools:context=".views.HomeScreenActivity"
+    android:background="@drawable/betterapp">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_150dp"
+        android:layout_marginTop="@dimen/dimen_200dp"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
         android:text="@string/better_care"
-        android:textSize="@dimen/dimen_40sp"
+        android:textSize="@dimen/dimen_70sp"
         android:textStyle="bold"
         android:padding="@dimen/dimen_20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimen_20dp"
-        android:layout_marginTop="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_100dp"
         android:backgroundTint="@color/grey_white"
         android:padding="@dimen/dimen_20dp"
         android:text="@string/admin"

@@ -120,7 +120,13 @@ public class ResidentDetailsActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                    models.add(new ResidentViewModel(resident.getName(), date,
+                    String str[] = date.split("\\.");
+                    int year = Integer.parseInt(str[2]);
+
+                    Calendar calendar = Calendar.getInstance();
+                    int currYear = calendar.get(Calendar.YEAR);
+
+                    models.add(new ResidentViewModel(resident.getName(), Integer.toString(currYear-year),
                             resident.getCare_type(), resident.getResident_id(), resident.getSex(),
                             resident.getRoom_no(), RowType.CARE_PERSON_ROW_TYPE));
 
