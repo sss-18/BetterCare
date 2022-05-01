@@ -98,10 +98,10 @@ public class PastRecordActivity extends AppCompatActivity {
     @BindView(R.id.visitation_value)
     TextView visitationValue;
 
-    @BindView(R.id.weakly_catalogue)
-    LinearLayout weaklyCatalogue;
-    @BindView(R.id.weakly_catalogue_value)
-    TextView weaklyCatalogueValue;
+    @BindView(R.id.weekly_catalogue)
+    LinearLayout weeklyCatalogue;
+    @BindView(R.id.weekly_catalogue_value)
+    TextView weeklyCatalogueValue;
 
     @BindView(R.id.other)
     LinearLayout other;
@@ -153,7 +153,7 @@ public class PastRecordActivity extends AppCompatActivity {
         accident.setVisibility(View.GONE);
         daily.setVisibility(View.GONE);
         visitation.setVisibility(View.GONE);
-        weaklyCatalogue.setVisibility(View.GONE);
+        weeklyCatalogue.setVisibility(View.GONE);
         other.setVisibility(View.GONE);
     }
 
@@ -400,13 +400,13 @@ public class PastRecordActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Catalogue>> call, Response<List<Catalogue>> response) {
                 Catalogue catalogueRes = response.body().get(0);
-                weaklyCatalogue.setVisibility(View.VISIBLE);
-                weaklyCatalogueValue.setText(catalogueRes.getNote());
+                weeklyCatalogue.setVisibility(View.VISIBLE);
+                weeklyCatalogueValue.setText(catalogueRes.getNote());
             }
 
             @Override
             public void onFailure(Call<List<Catalogue>> call, Throwable t) {
-                weaklyCatalogue.setVisibility(View.GONE);
+                weeklyCatalogue.setVisibility(View.GONE);
             }
         });
     }

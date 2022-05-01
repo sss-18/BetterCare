@@ -39,7 +39,7 @@ public class WeeklyCatalogueActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weakly_catalogue);
+        setContentView(R.layout.activity_weekly_catalogue);
         ButterKnife.bind(this);
         setUp();
     }

@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/dimen_10dp"
-        android:text="Weakly catalogue"
+        android:text="Weekly catalogue"
         android:textColor="@color/grey_white"
         android:textSize="@dimen/dimen_22sp"
         android:textStyle="bold"

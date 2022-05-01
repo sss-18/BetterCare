@@ -116,8 +116,8 @@ public class ChooseTaskActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @OnClick(R.id.weakly_catalogue)
-    public void onWeaklyCatalogueClicked() {
+    @OnClick(R.id.weekly_catalogue)
+    public void onWeeklyCatalogueClicked() {
         Intent intent = new Intent(this, WeeklyCatalogueActivity.class);
         intent.putExtra(Keys.NAME_KEY, name);
         intent.putExtra(Keys.ID_KEY, id);

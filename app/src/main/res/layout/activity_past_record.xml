@@ -821,7 +821,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/weakly_catalogue"
+                android:id="@+id/weekly_catalogue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_40dp"
@@ -831,7 +831,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/visitation">
 
                 <TextView
-                    android:id="@+id/weakly_catalogue_title"
+                    android:id="@+id/weekly_catalogue_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
@@ -840,12 +840,12 @@
                     android:fontFamily="sans-serif"
                     android:paddingTop="@dimen/dimen_20dp"
                     android:paddingBottom="@dimen/dimen_20dp"
-                    android:text="Weakly\ncatalogue:"
+                    android:text="Weekly\ncatalogue:"
                     android:textSize="@dimen/dimen_22sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/weakly_catalogue_value"
+                    android:id="@+id/weekly_catalogue_value"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimen_150dp"
                     android:layout_gravity="center_vertical"
@@ -867,7 +867,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weakly_catalogue">
+                app:layout_constraintTop_toBottomOf="@+id/weekly_catalogue">
 
                 <TextView
                     android:id="@+id/other_title"

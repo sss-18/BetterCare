@@ -8,10 +8,10 @@ public class ResidentRecord {
     private String accidentRecord;
     private String moodRecord;
     private String visitationRecord;
-    private String weaklyCatalogueRecord;
+    private String weeklyCatalogueRecord;
     private String commentsRecord;
 
-    public ResidentRecord(PersonalCares personalCares, Meals meals, String fluid, String activityRecord, String accidentRecord, String moodRecord, String visitationRecord, String weaklyCatalogueRecord, String commentsRecord) {
+    public ResidentRecord(PersonalCares personalCares, Meals meals, String fluid, String activityRecord, String accidentRecord, String moodRecord, String visitationRecord, String weeklyCatalogueRecord, String commentsRecord) {
         this.mPersonalCares = personalCares;
         this.mMeals = meals;
         this.fluid = fluid;
@@ -19,7 +19,7 @@ public class ResidentRecord {
         this.accidentRecord = accidentRecord;
         this.moodRecord = moodRecord;
         this.visitationRecord = visitationRecord;
-        this.weaklyCatalogueRecord = weaklyCatalogueRecord;
+        this.weeklyCatalogueRecord = weeklyCatalogueRecord;
         this.commentsRecord = commentsRecord;
     }
 
@@ -79,12 +79,12 @@ public class ResidentRecord {
         this.visitationRecord = visitationRecord;
     }
 
-    public String getWeaklyCatalogueRecord() {
-        return weaklyCatalogueRecord;
+    public String getWeeklyCatalogueRecord() {
+        return weeklyCatalogueRecord;
     }
 
-    public void setWeaklyCatalogueRecord(String weaklyCatalogueRecord) {
-        this.weaklyCatalogueRecord = weaklyCatalogueRecord;
+    public void setWeeklyCatalogueRecord(String weeklyCatalogueRecord) {
+        this.weeklyCatalogueRecord = weeklyCatalogueRecord;
     }
 
     public String getCommentsRecord() {
