@@ -169,7 +169,7 @@
                 android:layout_marginHorizontal="@dimen/dimen_20dp"
                 android:layout_marginTop="@dimen/dimen_10dp"
                 android:backgroundTint="@color/grey_white"
-                android:text="Other."
+                android:text="Other Comments"
                 android:textAllCaps="false"
                 android:textSize="@dimen/dimen_18sp" />
 
